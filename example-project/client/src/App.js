@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./component/Home";
+import DiscPage from './component/DiscPage';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,7 +20,7 @@ function App() {
             <h1>Test Route</h1>
           </Route>
           <Route path="/discs">
-          <h1>Disc Count: {count}</h1>
+            <DiscPage />
           </Route>
           <Route path="/bags">
           <h1>Bag Count: {count}</h1>
