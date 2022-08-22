@@ -12,7 +12,7 @@ import UserComments from "./Components/UserComments.js"
 import NewCommentForm from "./Components/NewCommentForm.js"
 import UserCommentEditForm from "./Components/UserCommentEditForm"
 import UserDiscs from "./Components/UserDiscs.js"
-// import WriteDisc from "./Components/WriteDisc.js"
+import CreateDisc from "./Components/CreateDisc.js"
 import UserDiscEditForm from './Components/UserDiscEditForm';
 import UserBags from './Components/UserBags';
 import { useState, useEffect } from "react";
@@ -91,7 +91,7 @@ function App() {
         <Route path='/user/comments/:id' element={<UserCommentEditForm/>}/>
         <Route path="/comments/new" element={<NewCommentForm/>}/>
         <Route path="/user/discs" element={<UserDiscs user={user}/>}/>
-        {/* <Route path="/disc/new" element={<WriteDisc user={user}/>}/> */}
+        <Route path="/disc/new" element={<CreateDisc user={user}/>}/>
         <Route path="/disc/edit" element={<UserDiscEditForm user={user}/>}/>
         <Route path="/user/bags" element={<UserBags user={user} setUser={setUser}/>}/>
       </Routes>

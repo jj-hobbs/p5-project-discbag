@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {useLocation} from 'react-router-dom';
 import UserCom from './UserCom.js'
+import Grid from '@mui/material/Grid';
 
 function UserComments({user}) {
     const [userA, setUserA] = useState(user);
@@ -27,18 +28,23 @@ function UserComments({user}) {
     }, [])
 
     return(
-        <div>
-            <h2>{user.name}'s comments</h2>
-            {comments.length > 0 ? (
+      <>
+        <h2>Your comments</h2>
+          <Grid container spacing={2} justifyContent="space-evenly" alignItems="center">
+            <Grid  justifyContent="space-evenly" alignItems="center" item xs={3}>
+              {comments.length > 0 ? (
                 <div>
                     {comments.map((comment) => (
                         <UserCom key={comment.id} discs={discs} comment={comment} user={userA} />
                     ))}
-                </div>
+                <br /></div>
+                
             ) : (
                 <h3>You have no comments! Check out our discs and comment on them!</h3>
             )}
-        </div>
+            </Grid>
+          </Grid>
+        </>
     )
 }
 

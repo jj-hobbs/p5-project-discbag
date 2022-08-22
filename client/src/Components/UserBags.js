@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Bag from "./Bag.js"
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 
 function UserBags({user, setUser}) {
     
@@ -20,18 +22,32 @@ function UserBags({user, setUser}) {
     const { bags } = user
 
     return(
-        <div>
-
+        <>
         {bags.length>0? 
-        <div>
-        <br />
-        {
-            bags.map(bag => (
-                <Bag key={bag.id} bag={bag} edit={true} user={user} setUser={setUser}/>
-            ))
-        }
-        </div> : <h2>You don't have any bags yet. Browse the selection of discs <Link to="/discs">here.</Link></h2>}
-        </div>
+          <Grid 
+            container spacing={2} 
+            justifyContent="space-evenly" 
+            alignItems="center"
+          >
+          <br />
+            {bags.map((bag) => (
+              <Grid 
+                justifyContent="space-evenly" 
+                alignItems="center" 
+                item xs={4}
+              >
+              <Bag 
+                key={bag.id} 
+                bag={bag} 
+                edit={true} 
+                user={user} 
+                setUser={setUser}
+              />
+              </Grid>
+            ))}
+            <br />
+          </Grid> : <h2>You don't have any bags yet. Browse the selection of discs <Link to="/discs">here.</Link></h2>}
+        </>
     )
 }
 

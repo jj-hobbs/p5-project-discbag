@@ -107,9 +107,9 @@ function Disc({ disc, user, edit }) {
         
         <Container>
             {errors?errors.map(e => <div key={e[0]}>{e[1]}</div>):null}
-        <Card sx={{ m: 1, maxWidth: 300, backgroundColor: "rgb(46, 69, 84)" }} elevation={10} component={Paper}>
+        <Card sx={{ m: 1, maxWidth: 300, backgroundColor: "#3a5a40" }} elevation={10} component={Paper}>
         <CardHeader 
-          style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}}
+          style={{color:"#FFFFFF", backgroundColor: "#3a5a40"}}
           title={mold}
           subheader={brand} 
         />
@@ -147,7 +147,7 @@ function Disc({ disc, user, edit }) {
           <CardActions disableSpacing>
           
             {user ? 
-            <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}} onClick={handleBag} endIcon={<BackpackIcon/>}>
+            <Button variant="outlined" type="submit" style={{color:"#3a5a40", backgroundColor: "	#FFFFFF"}} onClick={handleBag} endIcon={<BackpackIcon/>}>
                 Bag It!
             </Button>
             : null } 
@@ -158,12 +158,12 @@ function Disc({ disc, user, edit }) {
               aria-expanded={expanded}
               aria-label="show more"
               >
-                <ExpandMoreIcon style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}} />
+                <ExpandMoreIcon style={{color:"#FFFFFF", backgroundColor: "#3a5a40"}} />
             </ExpandMore>
           </CardActions>
         </CardContent>
       
-      <Collapse in={expanded} style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}} timeout="auto" unmountOnExit>
+      <Collapse in={expanded} style={{color:"#FFFFFF", backgroundColor: "#3a5a40"}} timeout="auto" unmountOnExit>
         
         <CardContent>
           <Typography paragraph>
@@ -176,7 +176,7 @@ function Disc({ disc, user, edit }) {
         </Button>
         <br /> <br />
       {showComments? 
-                <div  style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}}>
+                <div  style={{color:"#FFFFFF", backgroundColor: "#3a5a40"}}>
                     {comments.length>0?
                         <div>
                             {comments.map(comment => <Comment key={comment.id} comment={comment}  />)}

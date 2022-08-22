@@ -24,6 +24,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from "@mui/material";
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import NotesIcon from '@mui/icons-material/Notes';
 import Container from '@mui/material/Container';
 
 function Bag({ bag, user }) {
@@ -54,74 +56,92 @@ function Bag({ bag, user }) {
     }
 
     return(
-        <Card sx={{ maxWidth: 300 }} elevation={10} component={Paper}>
-            <CardHeader
-                title={disc.brand}
-                subheader={disc.mold}
-            />
-            <CardMedia
-                component="img"
-                height="200"
-                image={disc.image}
-                alt=" {mold} img"
-            />
+        <Container>
+        <Card sx={{ m: 1, maxWidth: 300, backgroundColor: "#344e41" }} elevation={10} component={Paper}>
+            <CardHeader 
+          style={{color:"#FFFFFF", backgroundColor: "#344e41"}}
+          title={disc.mold}
+          subheader={disc.brand} 
+        />
+        <CardMedia
+          component="img"
+          height="200"
+          image={disc.image}
+          alt=" {mold} img"
+        />
             <CardContent>
-                <TableContainer elevation={6} component={Paper}>
-                    <Table size="small" aria-label="a dense table">
-                    <TableHead>
-                        <TableRow>
-                        <TableCell align="center">Speed</TableCell>
-                        <TableCell align="center">Glide</TableCell>
-                        <TableCell align="center">Turn</TableCell>
-                        <TableCell align="center">Fade</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow>
-                            <TableCell align="center">{disc.speed}</TableCell>
-                            <TableCell align="center">{disc.glide}</TableCell>
-                            <TableCell align="center">{disc.turn}</TableCell>
-                            <TableCell align="center">{disc.fade}</TableCell>
-                        </TableRow>
-                    </TableBody>
-                    </Table>
-                </TableContainer> 
+            <TableContainer elevation={6} component={Paper}>
+            <Table size="small" aria-label="a dense table">
+              <TableBody>
+                  <TableRow>
+                    <TableCell align="center">Speed</TableCell>
+                    <TableCell align="center">{disc.speed}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">Glide</TableCell>
+                    <TableCell align="center">{disc.glide}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">Turn</TableCell>
+                    <TableCell align="center">{disc.turn}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">Fade</TableCell>
+                    <TableCell align="center">{disc.fade}</TableCell>
+                  </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer> 
             </CardContent>
             {bag_user? 
-                <p align="center">
-                    Added to the bag by 
-                    <br />
-                    {bag_user.name}
+                <p 
+                    style={{color:"#FFFFFF", backgroundColor: "#344e41"}}
+                    align="center">
+                        Added to the bag by 
+                        <br />
+                        {bag_user.name}
                 </p>
              : null 
             }
-             <Button onClick={handleComments}>
+             <Button 
+                variant="outlined" 
+                type="submit" 
+                style={{color:"#000000", backgroundColor: "#FFFFFF"}} 
+                startIcon={<NotesIcon/>} 
+                onClick={handleComments}>
                 {showComments? "Hide Comments" : "Show Comments" }
             </Button>
             <br />
             {showComments? 
-                <div>
+                <div 
+                    style={{color:"#FFFFFF", backgroundColor: "#344e41"}}
+                    align="center">
                     {comments.length>0?
                         <div>
                             {comments.map(comment => <Comment key={comment.id} comment={comment} />)}
                         </div> : <p>There are no comments for this disc yet.</p>
                     }
                 </div> : null }
-            <Button onClick={handleUnbag}>
+            <Button 
+                variant="outlined" 
+                type="submit" 
+                style={{color:"#000000", backgroundColor: "#FFFFFF"}} 
+                startIcon={<BackpackIcon/>} 
+                onClick={handleUnbag}
+            >
                 Take out of my bag
             </Button>
             <br />
             {user ? 
-                <Button>
+                <Button style={{color:"#000000", backgroundColor: "	#FFFFFF"}} startIcon={<RateReviewIcon/>}>
                     <Link to="/comments/new" state={{disc: {disc}, user: {user}}}>
                         Add a Comment
                     </Link>
                 </Button> 
                 : null
             }
-            
-            
         </Card>
+        </Container>
     )
 }
 

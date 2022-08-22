@@ -35,7 +35,7 @@ class DiscsController < ApplicationController
     end
 
     def disc_params
-        params.permit(:brand, :mold, :speed, :glide, :turn, :fade, :image, :user_id)
+        params.permit(:brand, :mold, :image, :speed, :glide, :turn, :fade, :description, :user_id)
     end
 
 end

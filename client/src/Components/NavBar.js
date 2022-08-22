@@ -20,6 +20,9 @@ import Divider from "@mui/material/Divider";
 // import FolderIcon from "@mui/icons-material/Folder";
 import HomeIcon from '@mui/icons-material/Home';
 import CircleIcon from '@mui/icons-material/Circle';
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import LogoutIcon from '@mui/icons-material/Logout';
 // import InputBase from "@mui/material/InputBase";
 // import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
@@ -100,31 +103,31 @@ function NavBar({ user, doLogout }) {
 }
 
   return (
-    <AppBar position="static" sx={{backgroundColor: "rgb(46, 69, 84)"}}>
+    <AppBar position="static" sx={{backgroundColor: "#344e41"}}>
       
         <Toolbar >
+          <IconButton
+            style={{color:"#dad7cd", backgroundColor: "#344e41"}}
+            anchor="left"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            onClick={toggleDrawer(true)}
+            // sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          
           <Container >
           <Typography variant="h3" sx={{ m: 2,flexGrow: 1, fontWeight: 900 }}>
             My Disc Bag
           </Typography>
           </Container>
-          <Box component="div" sx={{}}>
-          </Box>
-
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={toggleDrawer(true)}
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
 
           {/* The outside of the drawer */}
           <Drawer
             //from which side the drawer slides in
-            anchor="right"
+            anchor="left"
             //if open is true --> drawer is shown
             open={open}
             //function that is called when the drawer should close
@@ -137,12 +140,12 @@ function NavBar({ user, doLogout }) {
               sx={{
                 p: 8,
                 height: 1,
-                backgroundColor: "rgb(46, 69, 84)"
+                backgroundColor: "#3a5a40"
               }}
             >
               {/* when clicking the icon it calls the function toggleDrawer and closes the drawer by setting the variable open to false */}
               <IconButton sx={{ mb: 2 }}>
-                <CloseIcon onClick={toggleDrawer(false)} style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}} />
+                <CloseIcon onClick={toggleDrawer(false)} style={{color:"#dad7cd", backgroundColor: "#3a5a40"}} />
               </IconButton>
 
               {/* <Divider sx={{ mb: 2 }} /> */}
@@ -155,9 +158,9 @@ function NavBar({ user, doLogout }) {
                 <NavLink end to="/">
                   <Button 
                     variant="outlined" 
-                    style={{backgroundColor:"#FFFFFF", color: "rgb(46, 69, 84)"}} 
+                    style={{backgroundColor:"#dad7cd", color: "#344e41"}} 
                     sx={{ mb: 2 }} 
-                    startIcon={<HomeIcon sx={{ color: "rgb(46, 69, 84)" }} />}
+                    startIcon={<HomeIcon sx={{ color: "#344e41" }} />}
                     >
                     HOME
                   </Button>
@@ -168,9 +171,9 @@ function NavBar({ user, doLogout }) {
                 <NavLink end to="/discs">
                   <Button 
                     variant="outlined" 
-                    style={{backgroundColor:"#FFFFFF", color: "rgb(46, 69, 84)"}} 
+                    style={{backgroundColor:"#dad7cd", color: "#344e41"}} 
                     sx={{ mb: 2 }} 
-                    startIcon={<CircleIcon sx={{ color: "rgb(46, 69, 84)" }} />}
+                    startIcon={<CircleIcon sx={{ color: "#344e41" }} />}
                     >
                     DISCS
                   </Button>
@@ -182,10 +185,11 @@ function NavBar({ user, doLogout }) {
                       <Link to="signup">
                         <Button 
                           variant="outlined" 
-                          style={{backgroundColor:"#FFFFFF", color: "rgb(46, 69, 84)"}} 
+                          style={{backgroundColor:"#dad7cd", color: "#344e41"}} 
                           sx={{ mb: 2 }}
+                          startIcon={<DriveFileRenameOutlineIcon sx={{ color: "#344e41" }} />}
                           >
-                          Register
+                          SIGN UP
                         </Button>
                       </Link>
                     }
@@ -193,8 +197,9 @@ function NavBar({ user, doLogout }) {
                     {user ? (
                         <Button 
                           variant="outlined" 
-                          style={{backgroundColor:"#FFFFFF", color: "rgb(46, 69, 84)"}} 
+                          style={{backgroundColor:"#dad7cd", color: "#344e41"}} 
                           sx={{ mb: 2 }}  
+                          startIcon={<LogoutIcon sx={{ color: "#344e41" }} />}
                           onClick={handleLogout}
                           >
                           Logout
@@ -203,8 +208,9 @@ function NavBar({ user, doLogout }) {
                         <Link to="/login">
                             <Button 
                               variant="outlined" 
-                              style={{backgroundColor:"#FFFFFF", color: "rgb(46, 69, 84)"}} 
+                              style={{backgroundColor:"#dad7cd", color: "#344e41"}} 
                               sx={{ mb: 2 }}
+                              startIcon={<FingerprintIcon sx={{ color: "#344e41" }} />}
                               >
                               Login
                             </Button>
