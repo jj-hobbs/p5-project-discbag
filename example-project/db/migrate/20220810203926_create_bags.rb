@@ -1,9 +1,9 @@
-class CreateBags < ActiveRecord::Migration[6.1]
+class CreateBags < ActiveRecord::Migration[7.0]
   def change
     create_table :bags do |t|
-      t.string :name
-      t.belongs_to :user, null: false, foreign_key: true
-      t.belongs_to :disc, null: false, foreign_key: true
+      t.boolean :like
+      t.references :bag_user, foreign_key: { to_table: "users"}
+      t.references :bag_disc, foreign_key: { to_table: "discs"}
 
       t.timestamps
     end

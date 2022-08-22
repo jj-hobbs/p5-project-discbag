@@ -6,18 +6,36 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'faker'
 
+User.destroy_all
+Disc.destroy_all
+Comment.destroy_all
+Bag.destroy_all
 
-20.times{
-    User.create(
-        name: Faker::Name.name,
-        email: Faker::Internet.email,
-        username: Faker::Lorem.word, 
-        password: Faker::Lorem.word, 
-        admin: Faker::Boolean.boolean(true_ratio: 0.2)
-    )
-}
+puts "Creating Users..."
+
+User.create(
+    name: "Justin Hobbs",
+    email: "justinhobbs@fastmail.com",
+    username: "jhobbs",
+    password: "jhjhjh"
+)
+
+User.create(
+    name: "Alyssa Hobbs",
+    email: "alyssa.reed@icloud.com",
+    username: "areed",
+    password: "061921"
+)
+
+User.create(
+    name: "Antonio Reid",
+    email: "antonioreid@flatiron.com",
+    username: "antonioreid",
+    password: "areid22"
+)
+
+puts "Making Discs..."
 
 Disc.create([
         {
@@ -28,7 +46,8 @@ Disc.create([
             glide: 6,
             turn: 0,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Anax (pronounced 'Onyx') is Paul McBeth's new signature fairway/power driver. This 10 speed driver will fight the wind and stay straight down the fairway before a nice fade at the end. Slower arm speeds will find this disc to be very reliable for shorter fairway drivers. Big arms can expect big distance out of the Anax. ",
+            user_id: 1
         }, 
         {
             brand: "Discraft", 
@@ -38,7 +57,8 @@ Disc.create([
             glide: 2,
             turn: -1,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Discraft Soft APX is a super-soft flexible putter made with a special elite plastic. The outstanding grip helps this disc to provide consistent releases and successful putts. The APX is slightly understable. It has an overall straight flight path with minor turn and limited fade.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -48,7 +68,8 @@ Disc.create([
             glide: 4,
             turn: -4,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Discraft Archer is an understable midrange disc released during the 2016 Ace race. This is an excellent touch disc that with a very straight flight path with a hyzer flip. The Archer is a great all purpose disc for beginners that glides very well.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -58,7 +79,8 @@ Disc.create([
             glide: 5,
             turn: -3,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Avenger was a popular Discraft mold, so why not produce it in a Super Straight version? That’s exactly what Discraft did, and the Avenger SS has become more popular than the mold that inspired it. The Discraft Avenger SS is the perfect disc for intermediate players who want more distance with their backhand throws. This understable disc if fast, but doesn’t require so much speed that it prematurely fades before achieving max distance. Watch this disc turn, glide, and go farther than any other driver in your bag.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -68,7 +90,8 @@ Disc.create([
             glide: 3,
             turn: 0,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Banger GT (Groove Top) is a unique Discraft putter that has a Groove around the top and a large bead that help provide an enhanced grip. The GT is very popular for hyzer putts and offers a consistent release. It is a slightly overstable putter with a very straight flight path.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -78,7 +101,8 @@ Disc.create([
             glide: 4,
             turn: -1,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -88,7 +112,8 @@ Disc.create([
             glide: 4,
             turn: 0,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The most popular mid-range in the world now has a more overstable brother — the Buzzz OS. This new disc has the same great feel disc golfers have grown to love, with additional stability. The Buzzz OS is ideal for those times when the wind picks. This disc is also an excellent choice for forehand shots that need to fly on a straight line.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -98,7 +123,8 @@ Disc.create([
             glide: 4,
             turn: -2,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Buzzz SS is a less stable verzion of the ultra popular Discraft Buzzz. This midrange disc is great for beginners who have a hard time controlling fade.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -108,7 +134,8 @@ Disc.create([
             glide: 3,
             turn: 1,
             fade: 4,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Captain's Raptor is a modified Raptor. It has a similar feel to the Raptor, with a flat top and similar rim. This disc is designed to be more overstable than the Raptor. Providing a beefier version that can slice through the air and provide an even more reliable flight. This disc that will be reliable in even more adverse weather conditions.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -118,7 +145,8 @@ Disc.create([
             glide: 3,
             turn: 0,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Challenger is a tall overstable putter with a deep rim and a tiny bead. It has a Discraft stability rating of 1, and as an overstable putter is able to handle long approach shots without turning over. This putter is popular for advanced disc golfers.",
+            user_id: 1
         },
        
         {
@@ -129,7 +157,8 @@ Disc.create([
             glide: 3,
             turn: 0,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Challenger OS is a more overstable, flat-topped version of the popular Challenger. This putter works best for driving, throwing into headwinds, weaving forehand approaches, and tossing hyzer putts. It is overstable enough to meet a majority of a player's needs without becoming a meat hook.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -139,7 +168,8 @@ Disc.create([
             glide: 3,
             turn: -1,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Challenger SS is a putter originally debuted as a 'Test Flight' disc during the 2017 Ledgestone Open. It is a more understable version of the popular Challenger putter, with a flat-top and rounded edge and comfortable grip.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -149,7 +179,8 @@ Disc.create([
             glide: 5,
             turn: -2,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Discraft Comet is a very popular straight-flying, slightly understable midrange disc. This is a versatile disc that can handle all kinds of shots and conditions.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -159,7 +190,8 @@ Disc.create([
             glide: 5,
             turn: -2,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "Fast stable driver suitable for big arm disc golfers looking for the right mix of stability and speed. The Discraft Crank is described as a cross between the Nuke and the Nuke SS. Intermediate disc golfers who are looking for a longer drive will also enjoy this disc.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -169,7 +201,8 @@ Disc.create([
             glide: 5,
             turn: -3,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Crank SS is designed to give disc golfers who don't have a lot of power more distance. More advanced disc golfers will find the Crank SS flips up easily on hyzer releases.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -179,7 +212,8 @@ Disc.create([
             glide: 4,
             turn: -2,
             fade: 0,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Fierce is Paige Pierce's new signature putter model. It's a beadless, understable putter with a grippy plastic feel. This putter is perfect for draining putts from any distance. It will become your new go-to putter!",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -189,7 +223,8 @@ Disc.create([
             glide: 3,
             turn: 1,
             fade: 5,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "If you’re looking for a disc that won’t turn over on your power forehand flicks, this disc is for you. The Flick can be thrown with big anhyzer angles, and it will always fade back. This disc is incredibly thin and has a completely flat top. This is an excellent disc for ultra-powerful forehand/sidearm shots and strategic fades.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -199,7 +234,8 @@ Disc.create([
             glide: 2,
             turn: -1,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Focus is the perfect disc for disc golfers who really like to concentrate before throwing their disc in the chains. This slightly overstable putter provides a gentle fade and pinpoint accuracy for approach shots.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -209,7 +245,8 @@ Disc.create([
             glide: 5,
             turn: 0,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "Force your drives into maximum fade with this very overstable distance driver. This disc has a wide rim and travels at very high speeds. The force was built for power throwers looking for more distance, and is Discraft’s fastest flying overstable driver.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -219,7 +256,8 @@ Disc.create([
             glide: 5,
             turn: -3,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "Are you looking for a golf disc that will actually turn to the right on backhand throws? There are few slicing understable discs better than the Discraft Glide. While this is considered a fairway driver, new players will see maximum distance when throwing the Glide.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -229,7 +267,8 @@ Disc.create([
             glide: 6,
             turn: -3,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Hades is the newest Paul McBeth Series Driver. It's a straight to understable driver with massive amounts of glide. The Hades will be your new go-to distance driver, especially if you are intermediate to advanced. Players with bigger arms will find this to be an awesome, long bomb understable disc that will glide for days.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -239,7 +278,8 @@ Disc.create([
             glide: 6,
             turn: -3,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Heat was introduced as Discraft's 2014 Ace Race Disc. This disc has incredible glide and is very easy for newer disc golfers to get distance with. This disc excels on straight line finesse shots where you need distance and long controlled turnover shot.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -249,7 +289,8 @@ Disc.create([
             glide: 6,
             turn: -3,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "Are you looking for a drastic impact on your midrange game? The stable Discraft Impact is sure to get you where you want to be – next to the pin. The rim of the Impact was engineered to keep it flying flat, and minimize low speed fade. This mold is durable, comfortable, and allows for a smooth, consistent release.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -259,7 +300,8 @@ Disc.create([
             glide: 3,
             turn: 0,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Luna is the first putter in the Paul McBeth line for Discraft. It is his primary putter and it more overstable than a lot of other putters. It works great as a low-glide, beadless putter for players who putt with a lot of confidence. It will be a popular putter due to the reputation of Paul McBeth as a winner and will serve other experienced players well.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -269,7 +311,8 @@ Disc.create([
             glide: 4,
             turn: 0,
             fade: 4,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Machete will slice through the wind and carry you onto victory. This is a low profile disc with a medium thickness rim. The Machete is overstable and will hold perfect hyzer lines and power through any headwind. The Machete will surprise you with it's speed and ease of distance!",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -279,7 +322,8 @@ Disc.create([
             glide: 3,
             turn: -1,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Magnet is a good sized putter that is attracted to metal chains. This is Discraft’s flagship putter, and is used by disc golfers all over the world. The Magnet is shorter than most putters and has a very narrow rim. It has a mostly stable flight path with a mild fade at the end. The disc is not too firm, nor too soft, and does a good job of grabbing the chains and landing in the basket.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -289,7 +333,8 @@ Disc.create([
             glide: 4,
             turn: 1,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Malta is Paul McBeth's 4th disc, an overstable midrange. The Malta has a strong and controllable flight. It has a similar feel and flight to the Zone, but having the distance and trustworthiness as a Buzzz. The Diameter is slightly bigger than a Zone, but not as wide as a full size wide-diameter mid range.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -299,7 +344,8 @@ Disc.create([
             glide: 4,
             turn: -2,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Mantis is a reliable fairway driver that was originally released as the 2013 Ace Race disc in Titanium plastic. This disc provides a straight flight path, comfortable feel and excellent glide. The later runs have a lower profile and it is slightly more domey to make it easier to control with additional glide.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -309,7 +355,8 @@ Disc.create([
             glide: 5,
             turn: -3,
             fade: 0,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "As one of the understable midrange discs in Discraft’s lineup, the Meteor is great for controlled turnover throws. If you are right handed, throw backhand, and need a disc that is going to fly to the right, this is the disc you’re looking for. The Meteor will turn and glide giving beginners more control and distance.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -319,7 +366,8 @@ Disc.create([
             glide: 5,
             turn: -1,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Discraft Nuke is one of the most popular distance drivers in the world. This fast flying driver has an ultra-thick rim (2.5cm) and maintains maximum speed for a long time. While this disc is ultra-fast, it is relatively stable for power throwers.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -329,7 +377,8 @@ Disc.create([
             glide: 4,
             turn: 0,
             fade: 4,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The extra overstable version of the popular Discraft Nuke, the Nuke OS is made for advanced players with the most powerful arms. This disc has the same thick rim that the Nuke offers, but will finish its flight with a sharp overstable fade every time. Players who throw discs this hard are going to want them to maintain their flight characteristics. ",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -339,7 +388,8 @@ Disc.create([
             glide: 5,
             turn: -3,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Nuke SS is the “super straight” version of the popular Nuke driver. While this maximum distance driver has an extra wide rim and is still very fast, it can be thrown by less experienced players. The Nuke SS has a high degree of high speed turn that is followed by an equally high degree of low speed fade. The flight path of the Nuke SS is fairly similar to the Innova Katana. If you like discs with thick wing length, you’ll love the distance you can get from the Nuke SS.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -349,7 +399,8 @@ Disc.create([
             glide: 5,
             turn: -1,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Passion is a Paige Pierce branded fairway driver with a straight flight and a unique flat outer rim configuration. It is very similar to the classic Discraft Cyclone but with less of a bead, tuning it for a straighter, more dependable flight for precision placement on the fairway.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -359,7 +410,8 @@ Disc.create([
             glide: 4,
             turn: 1,
             fade: 4,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Predator is a predictable, overstable fairway driver. It is not the fastest disc on the market, but it has a reliable and consistent fade. Discraft gives this disc a stability rating of 2.5. This is the perfect disc for forehand flicks.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -369,7 +421,8 @@ Disc.create([
             glide: 4,
             turn: 0,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Raptor is speed 9 disc with a flat top and overstable finish. It is designed to slice through the air in any weather conditions for reliable flight. You'll find that the Raptor feels extremely comfortable as a forehand and backhand driver. ",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -379,7 +432,8 @@ Disc.create([
             glide: 4,
             turn: 0,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "If you like firm, thin, putters that just feel good in your hand, the Discraft Ringer is for you. The Ringer is an overstable putter with a low profile. The excellent feel this disc provides will help you gain confidence and make more putts.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -389,7 +443,8 @@ Disc.create([
             glide: 4,
             turn: 0,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Ringer GT is a modified Ringer putt and approach disc. The top features a subtle groove track for grip confidence, and the disc is slightly more overstable now. The Ringer GT is an excellent disc for bold approaches and drivers, working for backhand or forehand control when a soft landing is needed.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -399,7 +454,8 @@ Disc.create([
             glide: 4,
             turn: 0,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The 2015 Ace Race disc. A straight flier with extra glide, the Roach is crafty in avoiding danger while incessantly pursuing chains. Just point and shoot. It's beadless too and feels great in the hand. Try a Roach on your next approach!",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -409,7 +465,8 @@ Disc.create([
             glide: 6,
             turn: -2,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Scorch is an understable distance driver. This is like a longer Avenger SS. Making it a great distance driver that will have some turn and a decent amount of fade providing a consistent 'S' curve flight path.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -419,7 +476,8 @@ Disc.create([
             glide: 5,
             turn: -3,
             fade: 0,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Discraft Sol is the 2018 Ace Race Disc. This thin rim low profile midrange is perfect for touch approach shots. The Sol is a great disc for players of all skill level, allowing them to shape shots, weave through trees, and hit those difficult lines.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -429,7 +487,8 @@ Disc.create([
             glide: 5,
             turn: -1,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Discraft Stalker is one of the straightest flying drivers on the market. It offers a narrow rim that helps provide more control for backhand throws. This disc is perfect for dependable straight shots and lowering disc golf scores.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -439,7 +498,8 @@ Disc.create([
             glide: 5,
             turn: -2,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Discraft Sting was released as the 2017 Ace Race disc. This understable driver provides long glide and more distance for newer disc golfers. The Sting is easy to control.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -449,7 +509,8 @@ Disc.create([
             glide: 4,
             turn: -4,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Discraft Stratus is one of the best golf discs for beginners. This understable midrange will fly straight and far for players learning throwing techniques. For players with a little more power, the Stratus makes a good turnover disc that will curve towards the anhyzer side.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -459,7 +520,8 @@ Disc.create([
             glide: 5,
             turn: -1,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Surge is one of Discraft’s signature drivers. This is an outstanding driver, great for intermediate and professional players. The Surge is a fast flying disc with a moderate sized rim. It has a degree of high speed turn, incredible glide, and a healthy amount of low speed fade. The Surge performs well for both backhand and forehand throws.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -469,7 +531,8 @@ Disc.create([
             glide: 5,
             turn: -2,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Surge SS is a more understable version of the ultra-popular Discraft Surge. The ‘SS’ has a straighter edge that enhances control-ability and minimizes low speed fade, allowing this disc to fly even farther for less powerful players. The Surge SS works well for both forehand and backhand drives.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -479,7 +542,8 @@ Disc.create([
             glide: 5,
             turn: -3,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Thrasher by Discraft is a distance driver that is not too fast for most players, plus it has plenty of turn before the end-fade, making it a great choice for most players.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -489,7 +553,8 @@ Disc.create([
             glide: 5,
             turn: -1,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Discraft Undertaker is a moderately overstable driver released in the summer of 2016. This disc offers some turn in flight but will finish with a manageable fade. The Undertaker will take on headwinds and offer a flight that can be utilized for both backhand and forehand throws.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -499,7 +564,8 @@ Disc.create([
             glide: 5,
             turn: 0,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Discraft Vulture is described as a beat in Predator that is less overstable and offers more glide. This fairway driver has excellent control and is stable enough to manage moderate headwinds.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -509,7 +575,8 @@ Disc.create([
             glide: 3,
             turn: 0,
             fade: 2,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Wasp is one of the more popular overstable midrange discs. This is a great disc for windy conditions and strategic fading shots.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -519,7 +586,8 @@ Disc.create([
             glide: 5,
             turn: -1,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "This Paul McBeth signature disc is similar to the popular Innova Destroyer in flight and feel. The Zeus is a go to driver for power throwers looking for max distance and consistency. The Zeus has a fairly wide rim with a wing length. This is an excellent disc for both forehand and backhand throws for players who can handle the stability.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -529,7 +597,8 @@ Disc.create([
             glide: 4,
             turn: -1,
             fade: 1,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Zombee is a fairway driver that was introduced by Discraft for the 2012 Ace Race. This is a tall, super straight flyer with a predictable end of flight fade. This disc is like a cross between the midrange Buzzz and the Stalker driver.",
+            user_id: 1
         },
         {
             brand: "Discraft", 
@@ -539,16 +608,49 @@ Disc.create([
             glide: 3,
             turn: 0,
             fade: 3,
-            description: "The Buzzz is Discgolf’s most popular midrange due to its consistency and compatibility with a wide range of players styles. The Buzzz is a low profile modern midrange that is the gold standard for straight to stable flights players can trust."
+            description: "The Discraft Zone is a slim putter with a thick rim that gives you something to hold on to. This is a very overstable putter that is good for headwinds, strategic fades, forehand throws, flick putts, and slamming into chains at just the right angle. Many Discraft enthusiasts will have a Zone in their bag as a putter that gets them out of a situation where a Flick, or sidearm putt is their only option. Being so overstable, this disc can handle the torque that a Flick will put on it!",
+            user_id: 1
         },
         
         
 ])
 
-10.times{
-    Bag.create(
-        name: Faker::Adjective.positive,
-        user_id: User.all.ids.sample, 
-        disc_id: Disc.all.ids.sample,
-    )
-}
+puts "Writing Comments..."
+
+Comment.create(
+    content: "This poem really moves me. It makes me want to be more affectionate with love ones in my life.",
+    commented_disc_id: 6,
+    commenter_id: 1
+)
+
+Comment.create(
+    content: "I feel so small compared the world when I read this disc, and that makes me grateful. There's so much beauty to see.",
+    commented_disc_id: 4,
+    commenter_id: 1
+)
+
+Comment.create(
+    content: "I wish I could lay in the flowers forever. That's really what life is about anyways.",
+    commented_disc_id: 1,
+    commenter_id: 2
+)
+
+Comment.create(
+    content: "This disc is correct. We should never be apologetic for who we truly are or pity ourselves for not being perfect. It's unnatural.",
+    commented_disc_id: 3,
+    commenter_id: 2
+)
+
+Comment.create(
+    content: "This disc reminds me to approach life lightly.",
+    commented_disc_id: 5,
+    commenter_id: 3
+)
+
+Comment.create(
+    content: "The trees and plants speak to us, feed us, and protect us even though we've done nothing but destroy them.",
+    commented_disc_id: 2,
+    commenter_id: 3
+)
+
+puts "Finished seeding!"

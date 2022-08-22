@@ -10,19 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_10_203926) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_08_16_184528) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bags", force: :cascade do |t|
-    t.string "name"
-    t.bigint "user_id", null: false
-    t.bigint "disc_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["disc_id"], name: "index_bags_on_disc_id"
-    t.index ["user_id"], name: "index_bags_on_user_id"
+    t.boolean "like"
+    t.bigint "bag_user_id"
+    t.bigint "bag_disc_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bag_disc_id"], name: "index_bags_on_bag_disc_id"
+    t.index ["bag_user_id"], name: "index_bags_on_bag_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "commented_disc_id"
+    t.bigint "commenter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commented_disc_id"], name: "index_comments_on_commented_disc_id"
+    t.index ["commenter_id"], name: "index_comments_on_commenter_id"
   end
 
   create_table "discs", force: :cascade do |t|
@@ -34,20 +43,22 @@ ActiveRecord::Schema.define(version: 2022_08_10_203926) do
     t.integer "turn"
     t.integer "fade"
     t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "username"
-    t.string "password"
-    t.boolean "admin"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "bags", "discs"
-  add_foreign_key "bags", "users"
+  add_foreign_key "bags", "discs", column: "bag_disc_id"
+  add_foreign_key "bags", "users", column: "bag_user_id"
+  add_foreign_key "comments", "discs", column: "commented_disc_id"
+  add_foreign_key "comments", "users", column: "commenter_id"
 end
