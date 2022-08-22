@@ -108,9 +108,10 @@ function Disc({ disc, user, edit }) {
         <Container>
             {errors?errors.map(e => <div key={e[0]}>{e[1]}</div>):null}
         <Card sx={{ m: 1, maxWidth: 300, backgroundColor: "rgb(46, 69, 84)" }} elevation={10} component={Paper}>
-        <CardHeader style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}}
-          title={brand}
-          subheader={mold}
+        <CardHeader 
+          style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}}
+          title={mold}
+          subheader={brand} 
         />
         <CardMedia
           component="img"
@@ -121,19 +122,21 @@ function Disc({ disc, user, edit }) {
         <CardContent>
           <TableContainer elevation={6} component={Paper}>
             <Table size="small" aria-label="a dense table">
-              <TableHead>
-                <TableRow>
-                  <TableCell align="center">Speed</TableCell>
-                  <TableCell align="center">Glide</TableCell>
-                  <TableCell align="center">Turn</TableCell>
-                  <TableCell align="center">Fade</TableCell>
-                </TableRow>
-              </TableHead>
               <TableBody>
                   <TableRow>
+                    <TableCell align="center">Speed</TableCell>
                     <TableCell align="center">{speed}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">Glide</TableCell>
                     <TableCell align="center">{glide}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">Turn</TableCell>
                     <TableCell align="center">{turn}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="center">Fade</TableCell>
                     <TableCell align="center">{fade}</TableCell>
                   </TableRow>
               </TableBody>
@@ -161,6 +164,7 @@ function Disc({ disc, user, edit }) {
         </CardContent>
       
       <Collapse in={expanded} style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}} timeout="auto" unmountOnExit>
+        
         <CardContent>
           <Typography paragraph>
             {description}

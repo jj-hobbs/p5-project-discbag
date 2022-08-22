@@ -142,15 +142,23 @@ function NavBar({ user, doLogout }) {
             >
               {/* when clicking the icon it calls the function toggleDrawer and closes the drawer by setting the variable open to false */}
               <IconButton sx={{ mb: 2 }}>
-                <CloseIcon onClick={toggleDrawer(false)} />
+                <CloseIcon onClick={toggleDrawer(false)} style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}} />
               </IconButton>
 
-              <Divider sx={{ mb: 2 }} />
+              {/* <Divider sx={{ mb: 2 }} /> */}
+              <br />
+              <br />
+              <br />
 
               <Box sx={{ mb: 2 }}>
 
                 <NavLink end to="/">
-                  <Button variant="outlined" sx={{ mb: 2 }} startIcon={<HomeIcon sx={{ color: "green" }} />}>
+                  <Button 
+                    variant="outlined" 
+                    style={{backgroundColor:"#FFFFFF", color: "rgb(46, 69, 84)"}} 
+                    sx={{ mb: 2 }} 
+                    startIcon={<HomeIcon sx={{ color: "rgb(46, 69, 84)" }} />}
+                    >
                     HOME
                   </Button>
                 </NavLink>
@@ -158,7 +166,12 @@ function NavBar({ user, doLogout }) {
                 <br />
 
                 <NavLink end to="/discs">
-                  <Button variant="outlined" sx={{ mb: 2 }} startIcon={<CircleIcon sx={{ color: "green" }}/>}>
+                  <Button 
+                    variant="outlined" 
+                    style={{backgroundColor:"#FFFFFF", color: "rgb(46, 69, 84)"}} 
+                    sx={{ mb: 2 }} 
+                    startIcon={<CircleIcon sx={{ color: "rgb(46, 69, 84)" }} />}
+                    >
                     DISCS
                   </Button>
                 </NavLink>
@@ -167,19 +180,32 @@ function NavBar({ user, doLogout }) {
                   <>
                     {user ? null: 
                       <Link to="signup">
-                        <Button variant="contained" sx={{ m: 1, width: 0.5 }}>
+                        <Button 
+                          variant="outlined" 
+                          style={{backgroundColor:"#FFFFFF", color: "rgb(46, 69, 84)"}} 
+                          sx={{ mb: 2 }}
+                          >
                           Register
                         </Button>
                       </Link>
                     }
-                    
+                    <br />
                     {user ? (
-                        <Button variant="outlined" sx={{ m: 1, width: 0.5 }} onClick={handleLogout}>
+                        <Button 
+                          variant="outlined" 
+                          style={{backgroundColor:"#FFFFFF", color: "rgb(46, 69, 84)"}} 
+                          sx={{ mb: 2 }}  
+                          onClick={handleLogout}
+                          >
                           Logout
                         </Button>
                       ) : (
                         <Link to="/login">
-                            <Button variant="outlined" sx={{ m: 1, width: 0.5 }}>
+                            <Button 
+                              variant="outlined" 
+                              style={{backgroundColor:"#FFFFFF", color: "rgb(46, 69, 84)"}} 
+                              sx={{ mb: 2 }}
+                              >
                               Login
                             </Button>
                         </Link>

@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { Button } from "@mui/material";
 
 function Login({ handleLogin }) {
     const [formData, setFormData] = useState({
@@ -42,31 +45,42 @@ function Login({ handleLogin }) {
     }
 
     return(
-        <div>
-            <h1>Login</h1>
+        <Box>
+            <h1 style={{color:"rgb(46, 69, 84)"}}>
+                Login
+            </h1>
             <form onSubmit={handleSubmit}>
-                <input
+                <TextField 
+                    required
+                    id="outlined-required"
+                    label="Required"
                     placeholder="Username"
                     type="text"
                     name="username"
                     value={username}
                     onChange={handleChange}
                 >
-                </input>
-                <input
+                </TextField>
+                <br />
+                <br />
+                <TextField
+                    id="outlined-password-input"
+                    label="Password"
                     placeholder="Password"
-                    type="text"
+                    type="password"
                     name="password"
                     value={password}
                     onChange={handleChange}
                 >
-                </input>
-                <button type="submit">
+                </TextField>
+                <br />
+                <br />
+                <Button style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}} type="submit">
                     Login
-                </button>
+                </Button>
             </form>
             {errors?errors.map(e => <div key={e[0]}>{e[1]}</div>):null}
-        </div>
+        </Box>
     )
 }
 

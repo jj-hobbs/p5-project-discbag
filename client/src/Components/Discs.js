@@ -19,9 +19,9 @@ function Discs({ user }) {
       }, []);
 
     return (
-      <Grid container spacing={3} justifyContent="space-evenly" alignItems="center">
+      <Grid container spacing={2} justifyContent="space-evenly" alignItems="center">
         {discs.map((disc) => (
-          <Grid  justifyContent="space-evenly" alignItems="center" item xs={3}>
+          <Grid  justifyContent="space-evenly" alignItems="center" item xs={4}>
             <Disc key={disc.id} disc={disc} edit={false} user={user}/>
           </Grid>
         ))}

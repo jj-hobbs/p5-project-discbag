@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {useNavigate} from 'react-router-dom'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { Button } from "@mui/material";
 
 function Signup() {
 
@@ -53,45 +56,72 @@ function Signup() {
     }
 
     return(
-        <>
-        <h2>Sign up</h2>
+        <Box 
+            component="form"
+            sx={{
+                '& .MuiTextField-root': { m: 1, width: '25ch' },
+            }}>
+        <h1 style={{color:"rgb(46, 69, 84)"}}>
+            Sign up
+        </h1>
         <form onSubmit={handleSubmit}>
-            <input 
-                placeholder="Name"
+            <TextField 
+                required
+                id="outlined-required"
+                label="Name"
+                defaultValue="Name"
                 type="text"
                 name="name"
                 value={name}
                 onChange={handleChange}
             />
-            <input
+            <br />
+            <br />
+            <TextField
+                required
+                id="outlined-required"
+                label="Email"
                 placeholder="Email"
                 type="text"
                 name="email"
                 value={email}
                 onChange={handleChange}
             />
-            <input
+            <br />
+            <br />
+            <TextField
+                required
+                id="outlined-required"
+                label="Username"
                 placeholder="Username"
                 type='text'
                 name='username' 
                 value={username} 
                 onChange={handleChange}
             />
-            <input
+            <br />
+            <br />
+            <TextField
+                required
+                id="outlined-required"
+                label="Password"
                 placeholder="Password" 
                 type='password' 
                 name='password' 
                 value={password} 
                 onChange={handleChange}
             />
-            <button
+            <br />
+            <br />
+            <Button
+                style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}}
                 type="submit"
             >
-                Signup! 
-            </button>
+                SIGN UP! 
+            </Button>
         </form>
         {errors? errors.map(error => <div> {error[0]} {error[1]} </div>) : null }
-        </>
+        </Box>
     )
 }
 

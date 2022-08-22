@@ -1,7 +1,8 @@
 class DiscsController < ApplicationController
 
     def index
-        render json: Disc.all
+        discs = Disc.all.order(mold: :asc)
+        render json: discs
     end
 
     def show
@@ -34,7 +35,7 @@ class DiscsController < ApplicationController
     end
 
     def disc_params
-        params.permit(:brand, :mold, :speed, :glide, :turn, :fade, :user_id)
+        params.permit(:brand, :mold, :speed, :glide, :turn, :fade, :image, :user_id)
     end
 
 end
