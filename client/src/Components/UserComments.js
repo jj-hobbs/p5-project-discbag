@@ -37,13 +37,15 @@ function UserComments({user}) {
                     {comments.map((comment) => (
                         <UserCom key={comment.id} discs={discs} comment={comment} user={userA} />
                     ))}
-                <br /></div>
+                  <br /> <br />
+                </div>
                 
             ) : (
                 <h3>You have no comments! Check out our discs and comment on them!</h3>
             )}
             </Grid>
           </Grid>
+          <br />
         </>
     )
 }

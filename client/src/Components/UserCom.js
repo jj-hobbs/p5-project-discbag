@@ -3,6 +3,7 @@ import {useNavigate, useLocation, Link} from 'react-router-dom';
 import Button from "@mui/material/Button";
 import Card from '@mui/material/Card';
 import Paper from '@mui/material/Paper';
+import { Typography } from "@mui/material";
 
 function UserCom({comment, discs, user}) {
     const [theseDiscs, setTheseDiscs] = useState(discs)
@@ -44,12 +45,43 @@ function UserCom({comment, discs, user}) {
     }
 
     return(
+        <>
         <Card sx={{ width: 1 }} elevation={10} component={Paper}>
             {errors?errors.map(e => <div key={e[0]}>{e[1]}</div>):null}
-            <li>{comment.content}</li>
-            <Button><Link to="/user/comments/:id" state={{comment: {comment}}}>Edit Comment</Link></Button>
-            <Button onClick={handleDelete}>Delete Comment</Button>
+            <Typography>{comment.content}</Typography>
+            <Button 
+                variant="outlined" 
+                sx={{ 
+                    m:.5, 
+                    width: .35, 
+                    p:1, 
+                    color: "white", 
+                    backgroundColor: "#3a5a40" 
+                }}
+            >
+                <Link 
+                    to="/user/comments/:id" 
+                    state={{comment: {comment}}}
+                >
+                    Edit Comment
+                </Link>
+            </Button>
+            <Button 
+                variant="outlined" 
+                sx={{ 
+                    m:.5, 
+                    width: .6, 
+                    p:1, 
+                    color: "white", 
+                    backgroundColor: "#3a5a40" 
+                }} 
+                onClick={handleDelete}
+            >
+                Delete Comment
+            </Button>
         </Card>
+        <br />
+        </>
     )
 }
 
