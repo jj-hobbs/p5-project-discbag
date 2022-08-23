@@ -22,14 +22,12 @@ import { ThemeProvider, createTheme } from "@mui/material";
 const theme = createTheme({
   typography: {
     fontFamily: [
-      '"Helvetica Neue"',
-      'Roboto',
       'Montserrat',
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',
       'Roboto',
-      
+      '"Helvetica Neue"',
       'Arial',
       'sans-serif',
       '"Apple Color Emoji"',
