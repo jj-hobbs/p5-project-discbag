@@ -24,13 +24,6 @@ function Signup() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        // const user = {
-        //     name, 
-        //     email,
-        //     username,
-        //     email,
-        //     bio
-        // }
 
         fetch('/users',{
             method: "POST",
