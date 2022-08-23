@@ -18,21 +18,21 @@ User.create(
     name: "Justin Hobbs",
     email: "justinhobbs@fastmail.com",
     username: "jhobbs",
-    password_digest: "jhjhjh"
+    password: "jhjhjh"
 )
 
 User.create(
     name: "Alyssa Hobbs",
     email: "alyssa.reed@icloud.com",
     username: "areed",
-    password_digest: "061921"
+    password: "061921"
 )
 
 User.create(
     name: "Antonio Reid",
     email: "antonioreid@flatiron.com",
     username: "antonioreid",
-    password_digest: "areid22"
+    password: "areid22"
 )
 
 puts "Making Discs..."
