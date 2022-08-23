@@ -618,38 +618,56 @@ Disc.create([
 puts "Writing Comments..."
 
 Comment.create(
-    content: "This poem really moves me. It makes me want to be more affectionate with love ones in my life.",
+    content: "This is THE approach disc.",
+    commented_disc_id: 52,
+    commenter_id: 1
+)
+
+Comment.create(
+    content: "This is my go-to bomber disc.",
+    commented_disc_id: 21,
+    commenter_id: 1
+)
+
+Comment.create(
+    content: "I'm trying to learn how to control this disc better.",
+    commented_disc_id: 9,
+    commenter_id: 1
+)
+
+Comment.create(
+    content: "My putter of choice.",
+    commented_disc_id: 24,
+    commenter_id: 1
+)
+
+Comment.create(
+    content: "I love flexing this disc to unique shots.",
+    commented_disc_id: 42,
+    commenter_id: 1
+)
+
+Comment.create(
+    content: "I love how straight and controllable this disc is.",
+    commented_disc_id: 29,
+    commenter_id: 2
+)
+
+Comment.create(
+    content: "Great beginner midrange disc!",
     commented_disc_id: 6,
-    commenter_id: 1
-)
-
-Comment.create(
-    content: "I feel so small compared the world when I read this disc, and that makes me grateful. There's so much beauty to see.",
-    commented_disc_id: 4,
-    commenter_id: 1
-)
-
-Comment.create(
-    content: "I wish I could lay in the flowers forever. That's really what life is about anyways.",
-    commented_disc_id: 1,
     commenter_id: 2
 )
 
 Comment.create(
-    content: "This disc is correct. We should never be apologetic for who we truly are or pity ourselves for not being perfect. It's unnatural.",
-    commented_disc_id: 3,
-    commenter_id: 2
-)
-
-Comment.create(
-    content: "This disc reminds me to approach life lightly.",
-    commented_disc_id: 5,
+    content: "I love how much this disc turns.",
+    commented_disc_id: 9,
     commenter_id: 3
 )
 
 Comment.create(
-    content: "The trees and plants speak to us, feed us, and protect us even though we've done nothing but destroy them.",
-    commented_disc_id: 2,
+    content: "Testing out this putter this week.",
+    commented_disc_id: 18,
     commenter_id: 3
 )
 

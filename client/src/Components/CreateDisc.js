@@ -73,7 +73,7 @@ function CreateDisc({ user }) {
     return(
         <div>
             <h2>Create a Disc</h2>
-            {errors ? errors.map((e) => <div key={e[0]}>{e[1]}</div>) : null}
+            
             <form onSubmit={handleSubmit}>
             <FormControl>
                 <label>
@@ -179,7 +179,9 @@ function CreateDisc({ user }) {
                     />
                 </label>
                 <br />
+                {errors ? errors.map((e) => <div key={e[0]}>{e[1]}</div>) : null}
                 <br />
+                
                 <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}}>Create Disc</Button>
                 <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}} onClick={e=>goBack(e)}>Back</Button>
             </FormControl>

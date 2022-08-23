@@ -49,7 +49,7 @@ function UserEditForm({ user, updateUser }) {
     }
 
     return(
-        <Container sx={{ maxWidth: 300 }} elevation={10} component={Paper}>
+        <Container sx={{ width: 1 }} elevation={10} component={Paper}>
             <h2>Edit your profile here:</h2>
             <form onSubmit={handleSubmit}>
             <FormControl>

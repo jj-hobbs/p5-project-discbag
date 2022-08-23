@@ -107,7 +107,7 @@ function Disc({ disc, user, edit }) {
         
         <Container>
             {errors?errors.map(e => <div key={e[0]}>{e[1]}</div>):null}
-        <Card sx={{ m: 1, maxWidth: 300, backgroundColor: "#3a5a40" }} elevation={10} component={Paper}>
+        <Card sx={{ m: 1, width: 1, backgroundColor: "#3a5a40" }} elevation={10} component={Paper}>
         <CardHeader 
           style={{color:"#FFFFFF", backgroundColor: "#3a5a40"}}
           title={mold}
@@ -171,10 +171,10 @@ function Disc({ disc, user, edit }) {
           </Typography>
         </CardContent>
       </Collapse>
-        <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}} onClick={handleComments}>
+        <Button sx={{ m:1, width: .6, p:1 }} variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}} onClick={handleComments}>
             {showComments? "Hide Comments" : "Show Comments" }
         </Button>
-        <br /> <br />
+        <br />
       {showComments? 
                 <div  style={{color:"#FFFFFF", backgroundColor: "#3a5a40"}}>
                     {comments.length>0?
@@ -188,8 +188,8 @@ function Disc({ disc, user, edit }) {
             
             {edit?
             <>
-            <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}}><Link to="/disc/edit" state={{disc:{disc}}}>Edit Disc</Link></Button> 
-            <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}} onClick={handleDelete}>Delete Disc</Button>
+            <Button sx={{ m:1, width: .4, p:1 }} variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}}><Link to="/disc/edit" state={{disc:{disc}}}>Edit Disc</Link></Button> 
+            <Button sx={{ m:1, width: .4, p:1 }} variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}} onClick={handleDelete}>Delete Disc</Button>
             </> 
             : null}
     </Card>

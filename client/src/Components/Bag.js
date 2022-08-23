@@ -57,7 +57,7 @@ function Bag({ bag, user }) {
 
     return(
         <Container>
-        <Card sx={{ m: 1, maxWidth: 300, backgroundColor: "#344e41" }} elevation={10} component={Paper}>
+        <Card sx={{ m: 1, width: 1, backgroundColor: "#344e41" }} elevation={10} component={Paper}>
             <CardHeader 
           style={{color:"#FFFFFF", backgroundColor: "#344e41"}}
           title={disc.mold}
@@ -146,86 +146,3 @@ function Bag({ bag, user }) {
 }
 
 export default Bag;
-
-{/* <Card sx={{ maxWidth: 300 }} elevation={10} component={Paper}>
-        <CardHeader
-          title={brand}
-          subheader={mold}
-        />
-        <CardMedia
-          component="img"
-          height="200"
-          image={image}
-          alt=" {mold} img"
-        />
-        <CardContent>
-          <TableContainer elevation={6} component={Paper}>
-            <Table size="small" aria-label="a dense table">
-              <TableHead>
-                <TableRow>
-                  <TableCell align="center">Speed</TableCell>
-                  <TableCell align="center">Glide</TableCell>
-                  <TableCell align="center">Turn</TableCell>
-                  <TableCell align="center">Fade</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                  <TableRow>
-                    <TableCell align="center">{speed}</TableCell>
-                    <TableCell align="center">{glide}</TableCell>
-                    <TableCell align="center">{turn}</TableCell>
-                    <TableCell align="center">{fade}</TableCell>
-                  </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer> 
-          <br /> <br />
-      
-          <CardActions disableSpacing>
-          
-            {user ? 
-            <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}} onClick={handleBag} endIcon={<BackpackIcon/>}>
-                Bag It!
-            </Button>
-            : null } 
-
-            <ExpandMore
-              expand={expanded}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-              >
-                <ExpandMoreIcon />
-            </ExpandMore>
-          </CardActions>
-        </CardContent>
-      
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>
-            {description}
-          </Typography>
-        </CardContent>
-      </Collapse>
-        <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}} onClick={handleComments}>
-            {showComments? "Hide Comments" : "Show Comments" }
-        </Button>
-        <br /> <br />
-      {showComments? 
-                <div>
-                    {comments.length>0?
-                        <div>
-                            {comments.map(comment => <Comment key={comment.id} comment={comment} />)}
-                        </div> : <p>There are no comments for this disc yet.</p>
-                    }
-                </div> : null }
-            {user ? <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}}><Link to="/comments/new" state={{disc: {disc}, user: {user}}}>Add a Comment</Link></Button> : null}
-            <br />
-            
-            {edit?
-            <>
-            <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}}><Link to="/disc/edit" state={{disc:{disc}}}>Edit Disc</Link></Button> 
-            <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}} onClick={handleDelete}>Delete Disc</Button>
-            </> 
-            : null}
-    </Card> */}

@@ -1,5 +1,7 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Button, Card, Typography } from "@mui/material";
+import { Container } from "@mui/system";
 
 function User({ user, deleteUser }) {
     const [errors, setErrors] = useState(false)
@@ -26,17 +28,25 @@ function User({ user, deleteUser }) {
     if (user) {
         const { name, username, email } = user
         userInfo = 
-            <div>
-            <h2>Hello, {user.name}!</h2>
-            <h3>Your profile info:</h3>
-            <ul>
-                <p>Name: {name}</p>
-                <p>Username: {username}</p>
-                <p>Email: {email}</p>
-            </ul>
-            <button><Link to={'/user/edit'}>Edit Profile</Link></button>
-            <button onClick={handleDelete}>Delete Profile</button>
-            </div>
+            <Container sx={{ backgroundColor: "#3a5a40" }}>
+            <br />
+            <Typography sx={{ color: "white" }}>
+                <h2>Hello, {user.name}!</h2>
+            </Typography>
+            <Typography sx={{ color: "white" }}>Your profile info:</Typography>
+            <br />
+            <Typography sx={{ color: "white" }}>
+                Name: {name}
+                <br />
+                Username: {username}
+                <br />
+                Email: {email}
+            </Typography>
+            <br />
+            <Button sx={{ m:.5, width: .4, p:1, backgroundColor: "#a3b18a", color: "#3a5a40" }}><Link to={'/user/edit'}>Edit Profile</Link></Button>
+            <Button sx={{ m:.5, width: .4, p:1, backgroundColor: "#a3b18a", color: "#3a5a40" }} onClick={handleDelete}>Delete Profile</Button>
+            <br /> <br />
+            </Container>
         } else {
             userInfo = <h1>No user is logged in.</h1>
     }

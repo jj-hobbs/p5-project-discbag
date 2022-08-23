@@ -1,32 +1,44 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Paper, CardHeader } from "@mui/material";
+import Card from '@mui/material/Card';
+import { Box } from "@mui/system";
 
 function UserNav({user}) {
 
     return(
-        <nav>
+        <Box 
+            sx={{ backgroundColor: "transparent"}} 
+            justifyContent="space-evenly"
+            alignItems="center"
+            >
+        
+            <CardHeader 
+                // style={{color:"#FFFFFF", backgroundColor: "#3a5a40"}}
+                title="View Your" 
+            />
             <NavLink to="/user/discs">
-                <Button variant="outlined" sx={{ p:1, backgroundColor: "white" }}>
-                    {user.name}'s Discs
+                <Button variant="outlined" sx={{ m:.5, width: .4, p:1, color: "white", backgroundColor: "#3a5a40" }} item xs={6}>
+                    Discs
                 </Button>
             </NavLink>
             <NavLink to="/user/bags">
-                <Button variant="outlined" sx={{ backgroundColor: "white" }}>
-                    {user.name}'s Bag
+                <Button variant="outlined" sx={{ m:.5, width: .4, p:1, color: "white", backgroundColor: "#3a5a40" }} item xs={6}>
+                    Bag
                 </Button>
             </NavLink>
+            <br />
             <NavLink to="/user/comments">
-                <Button variant="outlined" sx={{ backgroundColor: "white" }}>
-                    {user.name}'s Comments
+                <Button variant="outlined" sx={{ m:.5, width: .4, p:1, color: "white", backgroundColor: "#3a5a40" }} item xs={6}>
+                    Comments
                 </Button>
             </NavLink>
             <NavLink to="/user">
-                <Button variant="outlined" sx={{ backgroundColor: "white" }}>
-                    {user.name}'s Info
+                <Button variant="outlined" sx={{ m:.5, width: .4, p:1, color: "white", backgroundColor: "#3a5a40" }} item xs={6}>
+                    Info
                 </Button>
             </NavLink>
-        </nav>
+        </Box>
     )
 }
 

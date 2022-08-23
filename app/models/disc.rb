@@ -7,4 +7,8 @@ class Disc < ApplicationRecord
 
     validates :brand, presence: true
     validates :mold, presence: true
+    validates :speed, numericality: { in: 1..15 }
+    validates :glide, numericality: { in: 1..6 }
+    validates :turn, numericality: { in: -5..1 }
+    validates :fade, numericality: { in: 0..5 }
 end

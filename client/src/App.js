@@ -1,6 +1,6 @@
 import './App.css';
 import Login from "./Components/Login.js";
-import Header from "./Components/Header.js";
+// import Header from "./Components/Header.js";
 import NavBar from "./Components/NavBar.js";
 import Signup from "./Components/Signup.js";
 import Discs from "./Components/Discs.js";

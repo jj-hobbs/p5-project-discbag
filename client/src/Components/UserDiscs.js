@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Disc from "./Disc.js"
+import Grid from '@mui/material/Grid';
 
 function UserDiscs({user}) {
     const [userDiscs, setUserDiscs] = useState([])
@@ -20,15 +21,19 @@ function UserDiscs({user}) {
         <>
         {userDiscs.length>0? 
             <div>
-                <h1>{user.name}'s Submitted Discs</h1>
-                <h2>Feel free to post another one <Link to="/disc/new">here.</Link></h2>
-                {userDiscs.map((disc) => (
-                    <Disc key={disc.id} disc={disc} edit={true}/>
-                ))}
+                <h1>{user.name}'s Created Discs</h1>
+                <h2>Make another one <Link to="/disc/new">here</Link>!</h2>
+                <Grid container spacing={2} justifyContent="space-evenly" alignItems="center">
+                    {userDiscs.map((disc) => (
+                        <Grid  justifyContent="space-evenly" alignItems="center" item xs={4}>
+                            <Disc key={disc.id} disc={disc} edit={true}/>
+                        </Grid>
+                    ))}
+                </Grid>
             </div>
         :
             <div>
-                <h2>You don't have any discs. You can write one <Link to="/disc/new">here.</Link></h2>
+                <h2>You haven't made any discs. Make one <Link to="/disc/new">here.</Link></h2>
             </div>
         }
 

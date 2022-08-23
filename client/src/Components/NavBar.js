@@ -103,11 +103,11 @@ function NavBar({ user, doLogout }) {
 }
 
   return (
-    <AppBar position="static" sx={{backgroundColor: "#344e41"}}>
+    <AppBar position="static" sx={{backgroundColor: "#3a5a40"}}>
       
         <Toolbar >
           <IconButton
-            style={{color:"#dad7cd", backgroundColor: "#344e41"}}
+            style={{color:"#dad7cd", backgroundColor: "#3a5a40"}}
             anchor="left"
             edge="start"
             color="inherit"
@@ -158,9 +158,9 @@ function NavBar({ user, doLogout }) {
                 <NavLink end to="/">
                   <Button 
                     variant="outlined" 
-                    style={{backgroundColor:"#dad7cd", color: "#344e41"}} 
+                    style={{backgroundColor:"#dad7cd", color: "#3a5a40"}} 
                     sx={{ mb: 2 }} 
-                    startIcon={<HomeIcon sx={{ color: "#344e41" }} />}
+                    startIcon={<HomeIcon sx={{ color: "#3a5a40" }} />}
                     >
                     HOME
                   </Button>
@@ -171,9 +171,9 @@ function NavBar({ user, doLogout }) {
                 <NavLink end to="/discs">
                   <Button 
                     variant="outlined" 
-                    style={{backgroundColor:"#dad7cd", color: "#344e41"}} 
+                    style={{backgroundColor:"#dad7cd", color: "#3a5a40"}} 
                     sx={{ mb: 2 }} 
-                    startIcon={<CircleIcon sx={{ color: "#344e41" }} />}
+                    startIcon={<CircleIcon sx={{ color: "#3a5a40" }} />}
                     >
                     DISCS
                   </Button>
@@ -185,9 +185,9 @@ function NavBar({ user, doLogout }) {
                       <Link to="signup">
                         <Button 
                           variant="outlined" 
-                          style={{backgroundColor:"#dad7cd", color: "#344e41"}} 
+                          style={{backgroundColor:"#dad7cd", color: "#3a5a40"}} 
                           sx={{ mb: 2 }}
-                          startIcon={<DriveFileRenameOutlineIcon sx={{ color: "#344e41" }} />}
+                          startIcon={<DriveFileRenameOutlineIcon sx={{ color: "#3a5a40" }} />}
                           >
                           SIGN UP
                         </Button>
@@ -197,9 +197,9 @@ function NavBar({ user, doLogout }) {
                     {user ? (
                         <Button 
                           variant="outlined" 
-                          style={{backgroundColor:"#dad7cd", color: "#344e41"}} 
+                          style={{backgroundColor:"#dad7cd", color: "#3a5a40"}} 
                           sx={{ mb: 2 }}  
-                          startIcon={<LogoutIcon sx={{ color: "#344e41" }} />}
+                          startIcon={<LogoutIcon sx={{ color: "#3a5a40" }} />}
                           onClick={handleLogout}
                           >
                           Logout
@@ -208,9 +208,9 @@ function NavBar({ user, doLogout }) {
                         <Link to="/login">
                             <Button 
                               variant="outlined" 
-                              style={{backgroundColor:"#dad7cd", color: "#344e41"}} 
+                              style={{backgroundColor:"#dad7cd", color: "#3a5a40"}} 
                               sx={{ mb: 2 }}
-                              startIcon={<FingerprintIcon sx={{ color: "#344e41" }} />}
+                              startIcon={<FingerprintIcon sx={{ color: "#3a5a40" }} />}
                               >
                               Login
                             </Button>

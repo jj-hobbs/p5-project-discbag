@@ -20,8 +20,8 @@ function DiscsHome({user}) {
     }
     
     return(
-        <Grid container spacing={3} justifyContent="space-evenly" alignItems="center">
-            <Grid  justifyContent="space-evenly" alignItems="center" item xs={3}>
+        <Grid container spacing={1} justifyContent="space-evenly" alignItems="center">
+            <Grid  justifyContent="space-evenly" alignItems="center" item xs={4}>
                 <h2>Featured Disc</h2>
                 <Disc key={disc.id} user={user} disc={disc}/>
             </Grid>

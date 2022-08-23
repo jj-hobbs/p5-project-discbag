@@ -44,7 +44,7 @@ function UserCom({comment, discs, user}) {
     }
 
     return(
-        <Card sx={{ maxWidth: 300 }} elevation={10} component={Paper}>
+        <Card sx={{ width: 1 }} elevation={10} component={Paper}>
             {errors?errors.map(e => <div key={e[0]}>{e[1]}</div>):null}
             <li>{comment.content}</li>
             <Button><Link to="/user/comments/:id" state={{comment: {comment}}}>Edit Comment</Link></Button>

@@ -61,7 +61,7 @@ function UserCommentEditForm({comment}) {
 
     return(
         <Box align="center" >
-          <Card sx={{ m: 1, maxWidth: 300, backgroundColor: "#3a5a40" }} elevation={10} component={Paper}>
+          <Card sx={{ m: 1, width: 1, backgroundColor: "#3a5a40" }} elevation={10} component={Paper}>
             {errors?errors.map(e => <div key={e[0]}>{e[1]}</div>):null}
             <form onSubmit={handleSubmit}>
                 <br />
