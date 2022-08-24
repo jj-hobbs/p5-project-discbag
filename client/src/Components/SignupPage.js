@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+// import { useEffect } from "react";
 import {useNavigate} from 'react-router-dom'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
 
-function Signup() {
+function SignupPage() {
 
     const [formData, setFormData] = useState({
         name: '',
@@ -107,7 +108,7 @@ function Signup() {
             <br />
             <br />
             <Button
-                style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}}
+                style={{color:"#eff0f2", backgroundColor: "#2d433c"}}
                 type="submit"
             >
                 SIGN UP! 
@@ -118,4 +119,4 @@ function Signup() {
     )
 }
 
-export default Signup;
+export default SignupPage;

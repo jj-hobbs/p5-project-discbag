@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import Disc from "./DiscCard.js"
+import { Link } from "react-router-dom";
+import DiscCard from "./DiscCard.js"
 import Grid from '@mui/material/Grid';
 
-function UserDiscs({user}) {
+function UserCreatedDiscs({user}) {
     const [userDiscs, setUserDiscs] = useState([])
 
     useEffect(() => {
@@ -26,7 +26,7 @@ function UserDiscs({user}) {
                 <Grid container spacing={2} justifyContent="space-evenly" alignItems="center">
                     {userDiscs.map((disc) => (
                         <Grid  justifyContent="space-evenly" alignItems="center" item xs={4}>
-                            <Disc key={disc.id} disc={disc} edit={true}/>
+                            <DiscCard key={disc.id} disc={disc} edit={true}/>
                         </Grid>
                     ))}
                 </Grid>
@@ -42,4 +42,4 @@ function UserDiscs({user}) {
     )
 }
 
-export default UserDiscs;
+export default UserCreatedDiscs;

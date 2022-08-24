@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import Disc from "./DiscCard.js"
+import DiscCard from "./DiscCard.js"
 import SearchBar from "./SearchBar.js";
 import FilterBar from "./FilterBar.js";
-import Card from '@mui/material/Card';
+// import Card from '@mui/material/Card';
 // import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
+// import Paper from '@mui/material/Paper';
 import { Box } from "@mui/system";
 // import GridList from "@mui/material/Grid";
 
 
 
-function Discs({ user }) {
+function DiscsPage({ user }) {
     const [discs, setDiscs] = useState([])
     const [search, setSearch] = useState("")
     // Our States
@@ -45,8 +45,6 @@ function Discs({ user }) {
           });
       }, []);
 
-      // sx={{ m: 1, alignItems:"center", width: 1, backgroundColor: "#3a5a40" }}
-
     return (
       <div>
         <Box sx={{ backgroundColor: "transparent" }} >
@@ -59,7 +57,7 @@ function Discs({ user }) {
         <Grid container spacing={2} justifyContent="space-evenly" alignItems="center">
           {filteredDisc.map((disc) => (
             <Grid  justifyContent="space-evenly" alignItems="center" item xs={4}>
-              <Disc key={disc.id} disc={disc} edit={false} user={user}/>
+              <DiscCard key={disc.id} disc={disc} edit={false} user={user}/>
             </Grid>
           ))}
         </Grid>
@@ -68,4 +66,4 @@ function Discs({ user }) {
 
 }
 
-export default Discs;
+export default DiscsPage;

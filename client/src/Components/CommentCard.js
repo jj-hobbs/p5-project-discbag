@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react'
 
-function Comment({comment}) {
+function CommentCard({comment}) {
     const [thisUser, setThisUser] = useState({})
 
     useEffect(()=>{
@@ -18,4 +18,4 @@ function Comment({comment}) {
     )
 }
 
-export default Comment;
+export default CommentCard;

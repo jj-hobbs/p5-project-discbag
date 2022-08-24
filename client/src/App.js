@@ -1,20 +1,20 @@
 import './App.css';
-import Login from "./Components/LoginPage.js";
+import LoginPage from "./Components/LoginPage.js";
 // import Header from "./Components/Header.js";
 import NavBar from "./Components/NavBar.js";
-import Signup from "./Components/SignupPage.js";
-import Discs from "./Components/DiscsPage.js";
+import SignupPage from "./Components/SignupPage.js";
+import DiscsPage from "./Components/DiscsPage.js";
 import DiscsHome from './Components/DiscsHome';
 import User from "./Components/User.js";
 import UserNav from "./Components/UserNav.js";
 import UserEditForm from "./Components/UserEditForm.js";
-import UserComments from "./Components/UserCommentsPage.js"
+import UserCommentsPage from "./Components/UserCommentsPage.js"
 import NewCommentForm from "./Components/NewCommentForm.js"
 import UserCommentEditForm from "./Components/UserCommentEditForm"
-import UserDiscs from "./Components/UserCreatedDiscs.js"
-import CreateDisc from "./Components/CreateDiscPage.js"
+import CreatedDiscs from "./Components/UserCreatedDiscs.js"
+import CreateDiscPage from "./Components/CreateDiscPage.js"
 import UserDiscEditForm from './Components/UserDiscEditForm';
-import UserBags from './Components/UserBagsPage';
+import UserBagsPage from './Components/UserBagsPage';
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, NavLink, BrowserRouter } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
@@ -82,18 +82,18 @@ function App() {
       {/* <Header user={user} doLogout={doLogout} /> */}
       <Routes>
         <Route exact path="/" element={<DiscsHome user={user}/>}/>
-        <Route path="/signup" element={<Signup />}/>
-        <Route path="/login" element={<Login handleLogin={handleLogin} />}/>
-        <Route path="/discs" element={<Discs user={user}/>}/>
+        <Route path="/signup" element={<SignupPage />}/>
+        <Route path="/login" element={<LoginPage handleLogin={handleLogin} />}/>
+        <Route path="/discs" element={<DiscsPage user={user}/>}/>
         <Route path="/user" element={<User user={user} deleteUser={deleteUser}/>}/>
         <Route path="/user/edit" element={<UserEditForm user={user} updateUser={updateUser}/>}/>
-        <Route path='/user/comments' element={<UserComments user={user}/>}/>
+        <Route path='/user/comments' element={<UserCommentsPage user={user}/>}/>
         <Route path='/user/comments/:id' element={<UserCommentEditForm/>}/>
         <Route path="/comments/new" element={<NewCommentForm/>}/>
-        <Route path="/user/discs" element={<UserDiscs user={user}/>}/>
-        <Route path="/disc/new" element={<CreateDisc user={user}/>}/>
+        <Route path="/user/discs" element={<CreatedDiscs user={user}/>}/>
+        <Route path="/disc/new" element={<CreateDiscPage user={user}/>}/>
         <Route path="/disc/edit" element={<UserDiscEditForm user={user}/>}/>
-        <Route path="/user/bags" element={<UserBags user={user} setUser={setUser}/>}/>
+        <Route path="/user/bags" element={<UserBagsPage user={user} setUser={setUser}/>}/>
       </Routes>
       </ThemeProvider>
     </div>

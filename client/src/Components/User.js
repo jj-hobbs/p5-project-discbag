@@ -1,6 +1,8 @@
-import { Link, useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useParams, useNavigate, NavLink } from "react-router-dom";
+import { useState } from "react";
+// import { useEffect } from "react";
 import { Button, Card, Typography } from "@mui/material";
+// import { Card } from "@mui/material";
 import { Container } from "@mui/system";
 
 function User({ user, deleteUser }) {
@@ -12,46 +14,52 @@ function User({ user, deleteUser }) {
     function handleDelete() {
         fetch(`/users/${user.id}`, {
             method: "DELETE",
-            headers: {'Content-Type': 'application/json'}
+            headers: { 'Content-Type': 'application/json' }
         })
-        .then(res => {
-            if(res.ok){
-                deleteUser(params.id)
-                navigate('/')
-            } else {
-                res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
-            }
-        })
+            .then(res => {
+                if (res.ok) {
+                    deleteUser(params.id)
+                    navigate('/')
+                } else {
+                    res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+                }
+            })
     }
 
     let userInfo;
     if (user) {
         const { name, username, email } = user
-        userInfo = 
-            <Container sx={{ backgroundColor: "#3a5a40" }}>
-            <br />
-            <Typography sx={{ color: "white" }}>
-                <h2>Hello, {user.name}!</h2>
-            </Typography>
-            <Typography sx={{ color: "white" }}>Your profile info:</Typography>
-            <br />
-            <Typography sx={{ color: "white" }}>
-                Name: {name}
+        userInfo =
+            <Container sx={{ backgroundColor: "#7d977d" }}>
                 <br />
-                Username: {username}
+                <Typography sx={{ color: "#eff0f2" }}>
+                    <h2>Hello, {user.name}!</h2>
+                </Typography>
+                <Typography sx={{ color: "#eff0f2" }}>Your profile info:</Typography>
                 <br />
-                Email: {email}
-            </Typography>
-            <br />
-            <Button sx={{ m:.5, width: .4, p:1, backgroundColor: "#a3b18a", color: "#3a5a40" }}><Link to={'/user/edit'}>Edit Profile</Link></Button>
-            <Button sx={{ m:.5, width: .4, p:1, backgroundColor: "#a3b18a", color: "#3a5a40" }} onClick={handleDelete}>Delete Profile</Button>
-            <br /> <br />
+                <Typography sx={{ color: "#eff0f2" }}>
+                    Name: {name}
+                    <br />
+                    Username: {username}
+                    <br />
+                    Email: {email}
+                </Typography>
+                <br />
+                <div>
+                    <NavLink to={'/user/edit'}>
+                        <Button sx={{ m: .5, width: .4, p: 1, backgroundColor: "#2d433c", color: "#eff0f2", "&:hover": { backgroundColor: "bfc0bd", color: "#2d433c" } }}>
+                            Edit Profile
+                        </Button>
+                    </NavLink>
+                    <Button sx={{ m: .5, width: .4, p: 1, backgroundColor: "#2d433c", color: "#eff0f2", "&:hover": { backgroundColor: "bfc0bd", color: "#2d433c" } }} onClick={handleDelete}>Delete Profile</Button>
+                </div>
+                <br />
             </Container>
-        } else {
-            userInfo = <h1>No user is logged in.</h1>
+    } else {
+        userInfo = <h1>No user is logged in.</h1>
     }
 
-    return(
+    return (
         <div>
             {userInfo}
         </div>

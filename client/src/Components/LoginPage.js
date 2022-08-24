@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
 
-function Login({ handleLogin }) {
+function LoginPage({ handleLogin }) {
     const [formData, setFormData] = useState({
         username: '',
         password: ''
@@ -75,7 +76,7 @@ function Login({ handleLogin }) {
                 </TextField>
                 <br />
                 <br />
-                <Button style={{color:"#FFFFFF", backgroundColor: "rgb(46, 69, 84)"}} type="submit">
+                <Button style={{color:"#eff0f2", backgroundColor: "#2d433c"}} type="submit">
                     Login
                 </Button>
             </form>
@@ -84,4 +85,4 @@ function Login({ handleLogin }) {
     )
 }
 
-export default Login;
+export default LoginPage;

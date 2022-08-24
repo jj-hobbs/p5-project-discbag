@@ -1,6 +1,7 @@
-import { useState, useEffect} from 'react'
+import { Button, Container, FormControl, FormLabel, Input, TextField } from '@mui/material';
+import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
-import Disc from "./DiscCard.js"
+import DiscCard from "./DiscCard.js"
 
 function NewCommentForm() {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ function NewCommentForm() {
                 commenter_id: location.state.user.user.id,
                 commented_disc_id: location.state.disc.disc.id
             }
-        setFormData(starterFormData)
+            setFormData(starterFormData)
         }
         start();
     }, [])
@@ -30,9 +31,9 @@ function NewCommentForm() {
     function goBack(e) {
         e.preventDefault();
         navigate(`/discs`);
-      }
+    }
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault()
         fetch(`/comments`, {
             method: "POST",
@@ -43,38 +44,44 @@ function NewCommentForm() {
             body: JSON.stringify(formData)
         }).then((c) => {
             if (c.ok) {
-              c.json().then((comment) => {
-                console.log(comment)
-                navigate("/discs")
-              });
+                c.json().then((comment) => {
+                    console.log(comment)
+                    navigate("/discs")
+                });
             } else {
-              c.json().then((json) => setErrors(Object.entries(json.errors)));
+                c.json().then((json) => setErrors(Object.entries(json.errors)));
             }
         });
     }
 
-    return(
+    return (
         <div>
-            <h2>Leave a comment for {location.state.disc.disc.brand} {location.state.disc.disc.mold}</h2>
-            {/* <p>{location.state.disc.disc.lines?.map((line) => (
+            <Container>
+                <h2>Leave a comment for the {location.state.disc.disc.brand} {location.state.disc.disc.mold}</h2>
+                {/* <p>{location.state.disc.disc.lines?.map((line) => (
                 <ul>{line}</ul>))}</p>
             <small>Linecount: {location.state.disc.disc.linecount}</small> */}
-            {errors ? errors.map((e) => <div key={e[0]}>{e[1]}</div>) : null}
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Comment:
-                    <textarea
+                {errors ? errors.map((e) => <div key={e[0]}>{e[1]}</div>) : null}
+                <FormControl onSubmit={handleSubmit}>
+                    <FormLabel>
+                    </FormLabel>
+                    <TextField
+                        sx={{ mx: 2 }}
+                        id="standard-multiline-static"
                         type="text"
                         name="content"
                         placeholder="Comment here"
                         value={formData.content}
                         onChange={handleChange}
                     >
-                    </textarea>
-                </label>
-                <button>Leave Comment</button>
-                <button onClick={e=>goBack(e)}>Back</button>
-            </form>
+                    </TextField>
+
+                    <div>
+                        <Button sx={{ m: 1, width: .45, p: 1, color: "#eff0f2", backgroundColor: "#2d433c" }}>Leave Comment</Button>
+                        <Button sx={{ m: 1, width: .45, p: 1, color: "#eff0f2", backgroundColor: "#2d433c" }} onClick={e => goBack(e)}>Back</Button>
+                    </div>
+                </FormControl>
+            </Container>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
-import MenuIcon from "@mui/icons-material/Menu";
+// import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import SaveIcon from '@mui/icons-material/Save';
 import FormLabel from '@mui/material/FormLabel';
@@ -61,14 +61,15 @@ function UserCommentEditForm({comment}) {
 
     return(
         <Box align="center" >
-          <Card sx={{ m: 1, width: 1, backgroundColor: "#3a5a40" }} elevation={10} component={Paper}>
+          <Card sx={{ m: 1, width: .5, backgroundColor: "#7d977d" }} elevation={10} component={Paper}>
             {errors?errors.map(e => <div key={e[0]}>{e[1]}</div>):null}
             <form onSubmit={handleSubmit}>
                 <br />
-                <FormLabel>
+                <FormLabel align="center">
                     Edit comment here:
                 </FormLabel>
-                  <TextField sx={{ backgroundColor: "#dad7cd" }}
+                  <TextField 
+                      sx={{ backgroundColor: "#eff0f2" }}
                       id="filled-multiline-flexible"
                       multiline
                       maxRows={4}
@@ -78,22 +79,22 @@ function UserCommentEditForm({comment}) {
                       value={formData.content}
                       onChange={handleChange}
                   />
-                <br />
+                <br /> <br />
                 <Button
                   variant="outlined" 
-                  style={{backgroundColor:"#FFFFFF", color: "#3a5a40"}} 
-                  sx={{ mb: 2 }} 
+                  style={{backgroundColor:"#2d433c", color: "#eff0f2"}} 
+                  sx={{ m:1, width: .45, p:1 }} 
                   startIcon={
-                    <SaveIcon sx={{ color: "#3a5a40" }} />
+                    <SaveIcon sx={{ color: "#eff0f2" }} />
                   }
                 >
                   Save edit
                 </Button>
                 <Button 
                   variant="outlined" 
-                  style={{backgroundColor:"#FFFFFF", color: "#3a5a40"}} 
-                  sx={{ mb: 2 }} 
-                  startIcon={<KeyboardBackspaceIcon sx={{ color: "#3a5a40" }} />}
+                  style={{backgroundColor:"#2d433c", color: "#eff0f2"}} 
+                  sx={{ m:1, width: .45, p:1 }} 
+                  startIcon={<KeyboardBackspaceIcon sx={{ color: "#eff0f2" }} />}
                   onClick={e=>goBack(e)}
                 >
                     Back

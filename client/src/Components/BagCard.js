@@ -1,55 +1,20 @@
-import {useEffect, useState} from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import Disc from "./DiscCard.js"
-import Comment from "./CommentCard.js";
-
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import BackpackIcon from '@mui/icons-material/Backpack';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Button } from "@mui/material";
-import RateReviewIcon from '@mui/icons-material/RateReview';
-import NotesIcon from '@mui/icons-material/Notes';
-import Container from '@mui/material/Container';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+// import { useEffect } from "react";
+// import { Navigate, useNavigate } from "react-router-dom";
+import CommentCard from "./CommentCard.js";
 
-function Bag({ bag, user }) {
+
+import {  Button, Card, CardContent, CardHeader, CardMedia, Container, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
+// import { CardActions, Collapse, FormControl, FormLabel, Grid, Input, Typography } from '@mui/material';
+import BackpackOutlinedIcon from '@mui/icons-material/BackpackOutlined';
+import NotesOutlinedIcon from '@mui/icons-material/NotesOutlined';
+import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
+
+function BagCard({ bag, user, handleUnbag, errors }) {
     const [showComments, setShowComments] = useState([])
-    const [errors, setErrors] = useState([])
-    const navigate = useNavigate()
     const { disc, id, comments, bag_user } = bag
-
-    function handleUnbag() {
-        console.log("click!")
-        fetch(`/bags/${id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(d => {
-            if(d.ok) {
-                navigate(`/user`)
-            } else {
-                d.json().then(json => setErrors(Object.entries(json.errors)))
-            }
-        })
-    }
 
     function handleComments(){
         setShowComments(!showComments)
@@ -57,9 +22,9 @@ function Bag({ bag, user }) {
 
     return(
         <Container>
-        <Card sx={{ m: 1, width: 1, backgroundColor: "#344e41" }} elevation={10} component={Paper}>
+        <Card sx={{ m: 1, width: 1, backgroundColor: "#7d977d" }} elevation={10} component={Paper}>
             <CardHeader 
-          style={{color:"#FFFFFF", backgroundColor: "#344e41"}}
+          style={{color:"#FFFFFF", backgroundColor: "#7d977d"}}
           title={disc.mold}
           subheader={disc.brand} 
         />
@@ -71,7 +36,7 @@ function Bag({ bag, user }) {
         />
             <CardContent>
             <TableContainer elevation={6} component={Paper}>
-            <Table size="small" aria-label="a dense table">
+            <Table style={{color:"#2d433c", backgroundColor: "#eff0f2"}} size="small" aria-label="a dense table">
               <TableBody>
                   <TableRow>
                     <TableCell align="center">Speed</TableCell>
@@ -95,7 +60,7 @@ function Bag({ bag, user }) {
             </CardContent>
             {bag_user? 
                 <p 
-                    style={{color:"#FFFFFF", backgroundColor: "#344e41"}}
+                    style={{color:"#000000", backgroundColor: "#7d977d"}}
                     align="center">
                         Added to the bag by 
                         <br />
@@ -106,34 +71,34 @@ function Bag({ bag, user }) {
              <Button 
                 variant="outlined" 
                 type="submit" 
-                style={{color:"#000000", backgroundColor: "#FFFFFF"}} 
-                startIcon={<NotesIcon/>} 
+                style={{color:"#2d433c", backgroundColor: "#eff0f2"}} 
+                startIcon={<NotesOutlinedIcon/>} 
                 onClick={handleComments}>
                 {showComments? "Hide Comments" : "Show Comments" }
             </Button>
             <br />
             {showComments? 
                 <div
-                    style={{color:"#FFFFFF", backgroundColor: "#344e41"}}
+                    style={{color:"#FFFFFF", backgroundColor: "#7d977d"}}
                     align="center">
                     {comments.length>0?
                         <div>
-                            {comments.map(comment => <Comment key={comment.id} comment={comment} />)}
+                            {comments.map(comment => <CommentCard key={comment.id} comment={comment} />)}
                         </div> : <p>There are no comments for this disc yet.</p>
                     }
                 </div> : null }
             <Button 
                 variant="outlined" 
                 type="submit" 
-                style={{color:"#000000", backgroundColor: "#FFFFFF"}} 
-                startIcon={<BackpackIcon/>} 
-                onClick={handleUnbag}
+                style={{color:"#2d433c", backgroundColor: "#eff0f2"}} 
+                startIcon={<BackpackOutlinedIcon/>} 
+                onClick={() => handleUnbag(id)}
             >
                 Take out of my bag
             </Button>
             <br />
             {user ? 
-                <Button style={{color:"#000000", backgroundColor: "	#FFFFFF"}} startIcon={<RateReviewIcon/>}>
+                <Button style={{color:"#2d433c", backgroundColor: "	#eff0f2"}} startIcon={<RateReviewOutlinedIcon/>}>
                     <Link to="/comments/new" state={{disc: {disc}, user: {user}}}>
                         Add a Comment
                     </Link>
@@ -145,4 +110,4 @@ function Bag({ bag, user }) {
     )
 }
 
-export default Bag;
+export default BagCard;

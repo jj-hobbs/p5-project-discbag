@@ -13,7 +13,7 @@ import { NavLink, Link } from "react-router-dom";
 //drawer elements used
 import Drawer from "@mui/material/Drawer";
 import CloseIcon from "@mui/icons-material/Close";
-import Divider from "@mui/material/Divider";
+// import Divider from "@mui/material/Divider";
 // import ListItemButton from "@mui/material/ListItemButton";
 // import ListItemIcon from "@mui/material/ListItemIcon";
 // import ListItemText from "@mui/material/ListItemText";
@@ -26,59 +26,6 @@ import LogoutIcon from '@mui/icons-material/Logout';
 // import InputBase from "@mui/material/InputBase";
 // import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
-
-// const StyledSearch = styled("div")(({ theme }) => ({
-//   position: "relative",
-//   borderRadius: theme.shape.borderRadius,
-//   backgroundColor: alpha(theme.palette.primary.main, 0.15),
-//   "&:hover": {
-//     backgroundColor: alpha(theme.palette.primary.main, 0.25)
-//   },
-//   marginRight: theme.spacing(2),
-//   marginLeft: 0,
-//   width: "100%",
-//   [theme.breakpoints.up("sm")]: {
-//     marginLeft: theme.spacing(3),
-//     width: "auto"
-//   }
-// }));
-
-// const SearchIconWrapper = styled("div")(({ theme }) => ({
-//   padding: theme.spacing(0, 2),
-//   height: "100%",
-//   position: "absolute",
-//   pointerEvents: "none",
-//   display: "flex",
-//   alignItems: "center",
-//   justifyContent: "center"
-// }));
-
-// const StyledInputBase = styled(InputBase)(({ theme }) => ({
-//   color: "inherit",
-//   "& .MuiInputBase-input": {
-//     padding: theme.spacing(1, 1, 1, 0),
-//     // vertical padding + font size from searchIcon
-//     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-//     transition: theme.transitions.create("width"),
-//     width: "100%",
-//     [theme.breakpoints.up("md")]: {
-//       width: "20ch"
-//     }
-//   }
-// }));
-
-// //search as JSX
-// const search = (
-//   <StyledSearch>
-//     <SearchIconWrapper>
-//       <SearchIcon />
-//     </SearchIconWrapper>
-//     <StyledInputBase
-//       placeholder="Suchen…"
-//       inputProps={{ "aria-label": "search" }}
-//     />
-//   </StyledSearch>
-// );
 
 function NavBar({ user, doLogout }) {
   //react useState hook to save the current open/close state of the drawer, normally variables dissapear afte the function was executed
@@ -103,11 +50,11 @@ function NavBar({ user, doLogout }) {
 }
 
   return (
-    <AppBar position="static" sx={{backgroundColor: "#3a5a40"}}>
+    <AppBar position="static" sx={{backgroundColor: "#2d433c"}}>
       
         <Toolbar >
           <IconButton
-            style={{color:"#dad7cd", backgroundColor: "#3a5a40"}}
+            style={{color:"#eff0f2", backgroundColor: "#2d433c"}}
             anchor="left"
             edge="start"
             color="inherit"
@@ -119,7 +66,7 @@ function NavBar({ user, doLogout }) {
           </IconButton>
           
           <Container >
-          <Typography variant="h3" sx={{ m: 2,flexGrow: 1, fontWeight: 900 }}>
+          <Typography variant="h3" sx={{ color:"#eff0f2", m: 2,flexGrow: 1, fontWeight: 900 }}>
             My Disc Bag
           </Typography>
           </Container>
@@ -140,12 +87,12 @@ function NavBar({ user, doLogout }) {
               sx={{
                 p: 8,
                 height: 1,
-                backgroundColor: "#3a5a40"
+                backgroundColor: "#2d433c"
               }}
             >
               {/* when clicking the icon it calls the function toggleDrawer and closes the drawer by setting the variable open to false */}
-              <IconButton sx={{ mb: 2 }}>
-                <CloseIcon onClick={toggleDrawer(false)} style={{color:"#dad7cd", backgroundColor: "#3a5a40"}} />
+              <IconButton sx={{ mb: 1, width: 1 }} >
+                <CloseIcon onClick={toggleDrawer(false)} style={{color:"#eff0f2", backgroundColor: "#2d433c"}} />
               </IconButton>
 
               {/* <Divider sx={{ mb: 2 }} /> */}
@@ -153,14 +100,14 @@ function NavBar({ user, doLogout }) {
               <br />
               <br />
 
-              <Box sx={{ mb: 2 }}>
+              <Box sx={{ mb: 2, width: 1 }}>
 
                 <NavLink end to="/">
                   <Button 
                     variant="outlined" 
-                    style={{backgroundColor:"#dad7cd", color: "#3a5a40"}} 
-                    sx={{ mb: 2 }} 
-                    startIcon={<HomeIcon sx={{ color: "#3a5a40" }} />}
+                    style={{backgroundColor:"#eff0f2", color: "#2d433c"}} 
+                    sx={{ mb: 1, width: 1 }} 
+                    startIcon={<HomeIcon sx={{ color: "#2d433c" }} />}
                     >
                     HOME
                   </Button>
@@ -171,9 +118,9 @@ function NavBar({ user, doLogout }) {
                 <NavLink end to="/discs">
                   <Button 
                     variant="outlined" 
-                    style={{backgroundColor:"#dad7cd", color: "#3a5a40"}} 
-                    sx={{ mb: 2 }} 
-                    startIcon={<CircleIcon sx={{ color: "#3a5a40" }} />}
+                    style={{backgroundColor:"#eff0f2", color: "#2d433c"}} 
+                    sx={{ mb: 1, width: 1 }} 
+                    startIcon={<CircleIcon sx={{ color: "#2d433c" }} />}
                     >
                     DISCS
                   </Button>
@@ -185,9 +132,9 @@ function NavBar({ user, doLogout }) {
                       <Link to="signup">
                         <Button 
                           variant="outlined" 
-                          style={{backgroundColor:"#dad7cd", color: "#3a5a40"}} 
-                          sx={{ mb: 2 }}
-                          startIcon={<DriveFileRenameOutlineIcon sx={{ color: "#3a5a40" }} />}
+                          style={{backgroundColor:"#eff0f2", color: "#2d433c"}} 
+                          sx={{ mb: 1, width: 1 }} 
+                          startIcon={<DriveFileRenameOutlineIcon sx={{ color: "#2d433c" }} />}
                           >
                           SIGN UP
                         </Button>
@@ -197,9 +144,9 @@ function NavBar({ user, doLogout }) {
                     {user ? (
                         <Button 
                           variant="outlined" 
-                          style={{backgroundColor:"#dad7cd", color: "#3a5a40"}} 
-                          sx={{ mb: 2 }}  
-                          startIcon={<LogoutIcon sx={{ color: "#3a5a40" }} />}
+                          style={{backgroundColor:"#eff0f2", color: "#2d433c"}} 
+                          sx={{ mb: 1, width: 1 }}  
+                          startIcon={<LogoutIcon sx={{ color: "#2d433c" }} />}
                           onClick={handleLogout}
                           >
                           Logout
@@ -208,9 +155,9 @@ function NavBar({ user, doLogout }) {
                         <Link to="/login">
                             <Button 
                               variant="outlined" 
-                              style={{backgroundColor:"#dad7cd", color: "#3a5a40"}} 
-                              sx={{ mb: 2 }}
-                              startIcon={<FingerprintIcon sx={{ color: "#3a5a40" }} />}
+                              style={{backgroundColor:"#eff0f2", color: "#2d433c"}} 
+                              sx={{ mb: 1, width: 1 }} 
+                              startIcon={<FingerprintIcon sx={{ color: "#2d433c" }} />}
                               >
                               Login
                             </Button>

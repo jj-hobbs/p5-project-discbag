@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import Paper from '@mui/material/Paper';
 import { Typography } from "@mui/material";
 
-function UserCom({comment, discs, user}) {
+function UserCommentCard({comment, discs, user}) {
     const [theseDiscs, setTheseDiscs] = useState(discs)
     const [thisComment, setThisComment] = useState(comment)
     const [commentedDiscs, setCommentedDiscs] = useState(null)
@@ -46,20 +46,22 @@ function UserCom({comment, discs, user}) {
 
     return(
         <>
-        <Card sx={{ width: 1 }} elevation={10} component={Paper}>
+        <Card sx={{ width: 1, backgroundColor: "#7d977d" }} elevation={10} component={Paper}>
             {errors?errors.map(e => <div key={e[0]}>{e[1]}</div>):null}
             <Typography>{comment.content}</Typography>
             <Button 
                 variant="outlined" 
                 sx={{ 
                     m:.5, 
-                    width: .35, 
-                    p:1, 
-                    color: "white", 
-                    backgroundColor: "#3a5a40" 
+                    width: .45, 
+                    p:1,  
+                    backgroundColor: "#eff0f2",
+                    "&:hover": { backgroundColor: "bfc0bd", color: "#2d433c" }
                 }}
             >
                 <Link 
+                    color="#2d433c"
+                    underline="none"
                     to="/user/comments/:id" 
                     state={{comment: {comment}}}
                 >
@@ -70,10 +72,11 @@ function UserCom({comment, discs, user}) {
                 variant="outlined" 
                 sx={{ 
                     m:.5, 
-                    width: .6, 
+                    width: .5, 
                     p:1, 
-                    color: "white", 
-                    backgroundColor: "#3a5a40" 
+                    color: "#2d433c", 
+                    backgroundColor: "#eff0f2", 
+                    "&:hover": { backgroundColor: "bfc0bd", color: "#2d433c" }
                 }} 
                 onClick={handleDelete}
             >
@@ -85,4 +88,4 @@ function UserCom({comment, discs, user}) {
     )
 }
 
-export default UserCom;
+export default UserCommentCard;

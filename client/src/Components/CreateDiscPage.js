@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {useNavigate} from 'react-router-dom'
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { Button, Input, FormControl } from "@mui/material";
+import { useNavigate } from 'react-router-dom'
+import { Button, Input, FormControl, FormLabel, TextField } from "@mui/material";
 
-function CreateDisc({ user }) {
+function CreateDiscPage({ user }) {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({});
     const [errors, setErrors] = useState([]);
@@ -55,7 +53,7 @@ function CreateDisc({ user }) {
         })
     }
 
-    function readyNewDisc(e){
+    function readyNewDisc(e) {
         let toSend = formData
         toSend.user_id = user.id
         // toSend.brand = disc.brand
@@ -70,124 +68,123 @@ function CreateDisc({ user }) {
         return toSend
     }
 
-    return(
+    return (
         <div>
             <h2>Create a Disc</h2>
-            
+
             <form onSubmit={handleSubmit}>
-            <FormControl>
-                <label>
-                    Brand:
-                    <Input
-                    sx={{ml:2}}
-                    type="text"
-                    name="brand"
-                    placeholder="Disc Brand"
-                    value={formData.brand}
-                    onChange={handleChange}
-                    />
-                </label>
+                <FormControl>
+                    <FormLabel>
+                        Brand:
+                        <Input
+                            sx={{ mx: 2 }}
+                            type="text"
+                            name="brand"
+                            placeholder="Disc Brand"
+                            value={formData.brand}
+                            onChange={handleChange}
+                        />
+                    </FormLabel>
+                    <br />
+                    <FormLabel>
+                        Mold:
+                        <Input
+                            sx={{ mx: 2 }}
+                            type="text"
+                            name="mold"
+                            placeholder="Mold"
+                            value={formData.mold}
+                            onChange={handleChange}
+                        />
+                    </FormLabel>
+                    <br />
+                    <FormLabel>
+                        Image URL:
+                        <Input
+                            sx={{ mx: 2 }}
+                            type="text"
+                            name="image"
+                            placeholder="Image"
+                            value={formData.image}
+                            onChange={handleChange}
+                        />
+                    </FormLabel>
+                    <br />
+                    <FormLabel>
+                        Speed:
+                        <Input
+                            sx={{ mx: 2 }}
+                            type="text"
+                            name="speed"
+                            placeholder="Speed"
+                            value={formData.speed}
+                            onChange={handleChange}
+                        />
+                    </FormLabel>
+                    <br />
+                    <FormLabel>
+                        Glide:
+                        <Input
+                            sx={{ mx: 2 }}
+                            type="text"
+                            name="glide"
+                            placeholder="Glide"
+                            value={formData.glide}
+                            onChange={handleChange}
+                        />
+                    </FormLabel>
+                    <br />
+                    <FormLabel>
+                        Turn:
+                        <Input
+                            sx={{ mx: 2 }}
+                            type="text"
+                            name="turn"
+                            placeholder="Turn"
+                            value={formData.turn}
+                            onChange={handleChange}
+                        />
+                    </FormLabel>
+                    <br />
+                    <FormLabel>
+                        Fade:
+                        <Input
+                            sx={{ mx: 2 }}
+                            type="text"
+                            name="fade"
+                            placeholder="Fade"
+                            value={formData.fade}
+                            onChange={handleChange}
+                        />
+                    </FormLabel>
+                    <FormLabel>
+                        Description:
+                        <br /> <br />
+                        <TextField
+                            id="standard-multiline-static"
+                            multiline
+                            rows={4}
+                            type="text"
+                            sx={{ mx: 2 }}
+                            name="description"
+                            placeholder="Description"
+                            value={formData.description}
+                            onChange={handleChange}
+                        />
+                    </FormLabel>
+                    <br />
+                    {errors ? errors.map((e) => <div key={e[0]}>{e[1]}</div>) : null}
+                    <br />
+                </FormControl>
                 <br />
-                <br />
-                <label>
-                    Mold:
-                    <Input
-                    sx={{ml:2}}
-                    type="text"
-                    name="mold"
-                    placeholder="Mold"
-                    value={formData.mold}
-                    onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <br />
-                <label>
-                Image URL:
-                    <Input
-                    sx={{ml:2}}
-                    type="text"
-                    name="image"
-                    placeholder="Image"
-                    value={formData.image}
-                    onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <br />
-                <label>
-                    Speed:
-                    <Input
-                    sx={{ml:2}}
-                    type="text"
-                    name="speed"
-                    placeholder="Speed"
-                    value={formData.speed}
-                    onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <br />
-                <label>
-                    Glide:
-                    <Input
-                    sx={{ml:2}}
-                    type="text"
-                    name="glide"
-                    placeholder="Glide"
-                    value={formData.glide}
-                    onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <br />
-                <label>
-                    Turn:
-                    <Input
-                    sx={{ml:2}}
-                    type="text"
-                    name="turn"
-                    placeholder="Turn"
-                    value={formData.turn}
-                    onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <br />
-                <label>
-                    Fade:
-                    <Input
-                    sx={{ml:2}}
-                    type="text"
-                    name="fade"
-                    placeholder="Fade"
-                    value={formData.fade}
-                    onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <br />
-                <label>
-                Description:
-                    <Input
-                    sx={{ml:2}}
-                    type="text"
-                    name="description"
-                    placeholder="Description"
-                    value={formData.description}
-                    onChange={handleChange}
-                    />
-                </label>
-                <br />
-                {errors ? errors.map((e) => <div key={e[0]}>{e[1]}</div>) : null}
-                <br />
-                
-                <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}}>Create Disc</Button>
-                <Button variant="outlined" type="submit" style={{color:"#000000", backgroundColor: "	#FFFFFF"}} onClick={e=>goBack(e)}>Back</Button>
-            </FormControl>
+                <div>
+                    <Button variant="outlined" type="submit" sx={{ m: .5, width: .4, p: 1, color: "#eff0f2", backgroundColor: "#2d433c" }}>Create Disc</Button>
+                    <Button variant="outlined" type="submit" sx={{ m: .5, width: .4, p: 1, color: "#eff0f2", backgroundColor: "#2d433c" }} onClick={e => goBack(e)}>Back</Button>
+                </div>
             </form>
+
         </div>
     )
 }
 
-export default CreateDisc;
+export default CreateDiscPage;

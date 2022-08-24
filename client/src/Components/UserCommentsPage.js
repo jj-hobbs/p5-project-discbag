@@ -3,7 +3,7 @@ import {useLocation} from 'react-router-dom';
 import UserCom from './UserCommentCard.js'
 import Grid from '@mui/material/Grid';
 
-function UserComments({user}) {
+function UserCommentsPage({user}) {
     const [userA, setUserA] = useState(user);
     const [comments, setComments] = useState([]);
     const [discs, setDiscs] = useState([]);
@@ -50,4 +50,4 @@ function UserComments({user}) {
     )
 }
 
-export default UserComments;
+export default UserCommentsPage;
