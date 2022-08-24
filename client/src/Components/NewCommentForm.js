@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
-import Disc from "./Disc.js"
+import Disc from "./DiscCard.js"
 
 function NewCommentForm() {
     const navigate = useNavigate();

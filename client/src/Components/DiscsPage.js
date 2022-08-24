@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Disc from "./Disc.js"
+import Disc from "./DiscCard.js"
 import SearchBar from "./SearchBar.js";
 import FilterBar from "./FilterBar.js";
 import Card from '@mui/material/Card';

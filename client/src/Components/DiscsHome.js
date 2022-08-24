@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Disc from "./Disc.js";
+import Disc from "./DiscCard.js";
 import Grid from '@mui/material/Grid';
 
 function DiscsHome({user}) {

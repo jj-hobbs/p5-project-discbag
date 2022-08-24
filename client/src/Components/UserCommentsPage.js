@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {useLocation} from 'react-router-dom';
-import UserCom from './UserCom.js'
+import UserCom from './UserCommentCard.js'
 import Grid from '@mui/material/Grid';
 
 function UserComments({user}) {

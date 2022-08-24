@@ -55,7 +55,14 @@ function UserEditForm({ user, updateUser }) {
             <FormControl>
                 <label>
                 Name:
-                    <Input sx={{ml:2}} type="text" name="name" placeholder={name} value={formData.name} onChange={handleChange} />
+                    <Input 
+                        sx={{ml:2}} 
+                        type="text" 
+                        name="name" 
+                        placeholder={name} 
+                        value={formData.name} 
+                        onChange={handleChange} 
+                    />
                 </label>
             <label>
                 Email:

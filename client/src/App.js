@@ -1,20 +1,20 @@
 import './App.css';
-import Login from "./Components/Login.js";
+import Login from "./Components/LoginPage.js";
 // import Header from "./Components/Header.js";
 import NavBar from "./Components/NavBar.js";
-import Signup from "./Components/Signup.js";
-import Discs from "./Components/Discs.js";
+import Signup from "./Components/SignupPage.js";
+import Discs from "./Components/DiscsPage.js";
 import DiscsHome from './Components/DiscsHome';
 import User from "./Components/User.js";
 import UserNav from "./Components/UserNav.js";
 import UserEditForm from "./Components/UserEditForm.js";
-import UserComments from "./Components/UserComments.js"
+import UserComments from "./Components/UserCommentsPage.js"
 import NewCommentForm from "./Components/NewCommentForm.js"
 import UserCommentEditForm from "./Components/UserCommentEditForm"
-import UserDiscs from "./Components/UserDiscs.js"
-import CreateDisc from "./Components/CreateDisc.js"
+import UserDiscs from "./Components/UserCreatedDiscs.js"
+import CreateDisc from "./Components/CreateDiscPage.js"
 import UserDiscEditForm from './Components/UserDiscEditForm';
-import UserBags from './Components/UserBags';
+import UserBags from './Components/UserBagsPage';
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, NavLink, BrowserRouter } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";

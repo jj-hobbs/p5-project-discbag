@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Disc from "./Disc.js"
+import Disc from "./DiscCard.js"
 import Grid from '@mui/material/Grid';
 
 function UserDiscs({user}) {

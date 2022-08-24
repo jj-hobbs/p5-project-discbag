@@ -19,12 +19,12 @@ function UserNav({user}) {
             />
             <NavLink to="/user/discs">
                 <Button variant="outlined" sx={{ m:.5, width: .4, p:1, color: "white", backgroundColor: "#3a5a40" }} item xs={6}>
-                    Discs
+                    Created Discs
                 </Button>
             </NavLink>
             <NavLink to="/user/bags">
                 <Button variant="outlined" sx={{ m:.5, width: .4, p:1, color: "white", backgroundColor: "#3a5a40" }} item xs={6}>
-                    Bag
+                    Disc Bag
                 </Button>
             </NavLink>
             <br />

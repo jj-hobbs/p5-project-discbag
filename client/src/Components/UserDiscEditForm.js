@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { FormControl, Input, Button, Container, Paper } from '@mui/material';
 
 function UserDiscEditForm({user}) {
     const navigate = useNavigate();
@@ -66,108 +67,145 @@ function UserDiscEditForm({user}) {
 
     return(
         <div>
+            <Container sx={{ width: 1 }} elevation={10} component={Paper}>
             <h2>Update your disc here:</h2>
             {errors ? errors.map((e) => <div key={e[0]}>{e[1]}</div>) : null}
             <form onSubmit={handleSubmit}>
+            <FormControl>
                 <label>
                     Brand:
-                    <input
-                    type="text"
-                    name="brand"
-                    placeholder="Disc Brand"
-                    value={formData.brand}
-                    onChange={handleChange}
+                    <Input
+                        sx={{ml:2}} 
+                        type="text"
+                        name="brand"
+                        placeholder="Disc Brand"
+                        value={formData.brand}
+                        onChange={handleChange}
                     />
                 </label>
                 <br />
                 <br />
                 <label>
                     Mold:
-                    <input
-                    type="text"
-                    name="mold"
-                    placeholder="Disc Mold"
-                    value={formData.mold}
-                    onChange={handleChange}
+                    <Input
+                        sx={{ml:2}} 
+                        type="text"
+                        name="mold"
+                        placeholder="Disc Mold"
+                        value={formData.mold}
+                        onChange={handleChange}
                     />
                 </label>
                 <br />
                 <br />
                 <label>
                     Image URL:
-                    <input
-                    type="text"
-                    name="image"
-                    placeholder="Image URL"
-                    value={formData.image}
-                    onChange={handleChange}
+                    <Input
+                        sx={{ml:2}} 
+                        type="text"
+                        name="image"
+                        placeholder="Image URL"
+                        value={formData.image}
+                        onChange={handleChange}
                     />
                 </label>
                 <br />
                 <br />
                 <label>
                     Speed:
-                    <input
-                    name="speed"
-                    type="text"
-                    placeholder="Speed"
-                    value={formData.speed}
-                    onChange={handleChange}
+                    <Input
+                        sx={{ml:2}} 
+                        name="speed"
+                        type="text"
+                        placeholder="Speed"
+                        value={formData.speed}
+                        onChange={handleChange}
                     />
                 </label>
                 <br />
                 <br />
                 <label>
                     Glide:
-                    <input
-                    name="glide"
-                    type="text"
-                    placeholder="Glide"
-                    value={formData.glide}
-                    onChange={handleChange}
+                    <Input
+                        sx={{ml:2}} 
+                        name="glide"
+                        type="text"
+                        placeholder="Glide"
+                        value={formData.glide}
+                        onChange={handleChange}
                     />
                 </label>
                 <br />
                 <br />
                 <label>
                     Turn:
-                    <input
-                    name="turn"
-                    type="text"
-                    placeholder="Turn"
-                    value={formData.turn}
-                    onChange={handleChange}
+                    <Input
+                        sx={{ml:2}} 
+                        name="turn"
+                        type="text"
+                        placeholder="Turn"
+                        value={formData.turn}
+                        onChange={handleChange}
                     />
                 </label>
                 <br />
                 <br />
                 <label>
                     Fade:
-                    <input
-                    name="fade"
-                    type="text"
-                    placeholder="Fade"
-                    value={formData.fade}
-                    onChange={handleChange}
+                    <Input
+                        sx={{ml:2}} 
+                        name="fade"
+                        type="text"
+                        placeholder="Fade"
+                        value={formData.fade}
+                        onChange={handleChange}
                     />
                 </label>
                 <br />
                 <br />
                 <label>
                     Description:
-                    <input
-                    name="description"
-                    type="text"
-                    placeholder="Description"
-                    value={formData.description}
-                    onChange={handleChange}
+                    <Input
+                        sx={{ml:2}} 
+                        name="description"
+                        type="text"
+                        placeholder="Description"
+                        value={formData.description}
+                        onChange={handleChange}
                     />
                 </label>
                 <br />
                 <br />
-                <button>Update Disc</button>
-                <button onClick={e=>goBack(e)}>Back</button>
+                <Button 
+                    variant="contained" 
+                    type="submit" 
+                    sx={{ 
+                        m:.5, 
+                        width: .6, 
+                        p:1, 
+                        color: "white", 
+                        backgroundColor: "#3a5a40" 
+                    }} 
+                >
+                    Update Disc
+                </Button>
+                <Button 
+                    variant="contained" 
+                    type="submit" 
+                    sx={{ 
+                        m:.5, 
+                        width: .6, 
+                        p:1, 
+                        color: "white", 
+                        backgroundColor: "#3a5a40" 
+                    }} 
+                    onClick={e=>goBack(e)}
+                >
+                    Back
+                </Button>
+                </FormControl>
             </form>
+            </Container>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Bag from "./Bag.js"
+import Bag from "./BagCard.js"
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 
