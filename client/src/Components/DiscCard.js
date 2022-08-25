@@ -103,7 +103,7 @@ function DiscCard({ disc, user, edit }) {
         />
         <CardMedia
           component="img"
-          height="200"
+          height="350"
           image={image}
           alt=" {mold} img"
         />
@@ -146,7 +146,7 @@ function DiscCard({ disc, user, edit }) {
               aria-expanded={expanded}
               aria-label="show more"
             >
-              <ExpandMoreIcon style={{ color: "#2d433c", backgroundColor: "#7d977d" }} />
+              <ExpandMoreIcon style={{ color: "#2d433c", backgroundColor: "transparent" }} />
             </ExpandMore>
           </CardActions>
         </CardContent>
