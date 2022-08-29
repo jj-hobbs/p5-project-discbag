@@ -57,30 +57,32 @@ function NewCommentForm() {
     return (
         <div>
             <Container>
-                <h2>Leave a comment for the {location.state.disc.disc.brand} {location.state.disc.disc.mold}</h2>
-                {/* <p>{location.state.disc.disc.lines?.map((line) => (
+                <form>
+                    <h2>Leave a comment for the {location.state.disc.disc.brand} {location.state.disc.disc.mold}</h2>
+                    {/* <p>{location.state.disc.disc.lines?.map((line) => (
                 <ul>{line}</ul>))}</p>
             <small>Linecount: {location.state.disc.disc.linecount}</small> */}
-                {errors ? errors.map((e) => <div key={e[0]}>{e[1]}</div>) : null}
-                <FormControl onSubmit={handleSubmit}>
-                    <FormLabel>
-                    </FormLabel>
-                    <TextField
-                        sx={{ mx: 2 }}
-                        id="standard-multiline-static"
-                        type="text"
-                        name="content"
-                        placeholder="Comment here"
-                        value={formData.content}
-                        onChange={handleChange}
-                    >
-                    </TextField>
+                    {errors ? errors.map((e) => <div key={e[0]}>{e[1]}</div>) : null}
+                    <FormControl onSubmit={handleSubmit}>
+                        <FormLabel>
+                        </FormLabel>
+                        <TextField
+                            sx={{ mx: 2 }}
+                            id="standard-multiline-static"
+                            type="text"
+                            name="content"
+                            placeholder="Comment here"
+                            value={formData.content}
+                            onChange={handleChange}
+                        >
+                        </TextField>
 
-                    <div>
-                        <Button sx={{ m: 1, width: .45, p: 1, color: "#eff0f2", backgroundColor: "#2d433c" }}>Leave Comment</Button>
-                        <Button sx={{ m: 1, width: .45, p: 1, color: "#eff0f2", backgroundColor: "#2d433c" }} onClick={e => goBack(e)}>Back</Button>
-                    </div>
-                </FormControl>
+                        <div>
+                            <Button sx={{ m: 1, width: .45, p: 1, color: "#eff0f2", backgroundColor: "#2d433c" }}>Leave Comment</Button>
+                            <Button sx={{ m: 1, width: .45, p: 1, color: "#eff0f2", backgroundColor: "#2d433c" }} onClick={e => goBack(e)}>Back</Button>
+                        </div>
+                    </FormControl>
+                </form>
             </Container>
         </div>
     )
